@@ -1,0 +1,15 @@
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.exe.config
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.exe
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.pdb
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.csprojResolveAssemblyReference.cache
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.csproj.CoreCompileInputs.cache
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.exe
+c:\users\tiany\source\repos\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.pdb
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.exe.config
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.exe
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\bin\Debug\StateMachinePattern.pdb
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.csproj.AssemblyReference.cache
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.csproj.SuggestedBindingRedirects.cache
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.csproj.CoreCompileInputs.cache
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.exe
+C:\Users\Maxwell\Desktop\StateMachinePattern\StateMachinePattern\StateMachinePattern\obj\Debug\StateMachinePattern.pdb
