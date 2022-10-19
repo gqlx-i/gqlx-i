@@ -9,7 +9,7 @@
         KeyDown="Window_Keydown"
         KeyUp="Window_KeyUp">
     <Grid>
-        <Grid.ColumnDefinitions>
+       <!-- <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
@@ -34,13 +34,8 @@
             <ComboBox Width="100" Height="30" Margin="10,5,10,5" VerticalContentAlignment="Center"/>
         </StackPanel>
         <Label Grid.Row="0" Grid.Column="2" Content="搜索结果：xx" Width="150" Height="30" Margin="0,5,10,5" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
-        <!--<ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" Background="LightGray" BorderThickness="1" Margin="10,5,10,5">
+        <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" Background="LightGray" BorderThickness="1" Margin="10,5,10,5">
             
         </ListBox>-->
-        <ScrollViewer  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
-            <Canvas x:Name="CanvasInPath" Background="Aqua" Cursor="Arrow" Width="1500" Height="800" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
-
-            </Canvas>
-        </ScrollViewer>
     </Grid>
 </Window>
