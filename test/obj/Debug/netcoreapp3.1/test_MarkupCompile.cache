@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\chp\gitProject\test\test\App.xaml
-2-1919234965
+5256888034
 
-4-1158435775
+10128320169
 192-1533232326
-ExampleC.xaml;MainWindow.xaml;
+MainWindow.xaml;Resources\ExampleC.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\SelectWindowView.xaml;
 
 False
 

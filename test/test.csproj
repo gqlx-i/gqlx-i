@@ -6,9 +6,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Common\" />
-  </ItemGroup>
-
 </Project>
