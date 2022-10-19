@@ -37,7 +37,7 @@
         <!--<ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" Background="LightGray" BorderThickness="1" Margin="10,5,10,5">
             
         </ListBox>-->
-        <ScrollViewer  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+        <ScrollViewer  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
             <Canvas x:Name="CanvasInPath" Background="Aqua" Cursor="Arrow" Width="1500" Height="800" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
 
             </Canvas>

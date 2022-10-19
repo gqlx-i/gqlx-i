@@ -15,3 +15,7 @@
 /test/obj/Debug/netcoreapp3.1/View/MappingView.g.i.cs
 /test/obj/Debug/netcoreapp3.1/View/OptionsWindowView.g.i.cs
 /test/obj/Debug/netcoreapp3.1/View/SelectWindowView.g.i.cs
+/.vs/test/v16/.suo
+/test/obj/Debug/netcoreapp3.1/test_MarkupCompile.i.cache
+/test/obj/Debug/netcoreapp3.1/test_MarkupCompile.i.lref
+/test/test.csproj
