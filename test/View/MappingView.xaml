@@ -105,7 +105,7 @@
             <ComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding MapChangeList}" SelectedValue="{Binding mcItem}" DisplayMemberPath="Glass" Width="120" Height="35"/>
             <CheckBox Content="显示路径" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Button Content="选项" Click="OptionBtn_Click" Grid.Row="0" Grid.Column="5" Width="70" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
-            <Button Content="筛选" Click="Select_Click" Grid.Row="1" Grid.Column="5" Width="70" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <Button Content="筛选"  Grid.Row="1" Grid.Column="5" Width="70" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
             <Button Content="演示" Grid.Row="2" Grid.Column="5" Width="70" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
         </Grid>
         <Grid Grid.Row="1">

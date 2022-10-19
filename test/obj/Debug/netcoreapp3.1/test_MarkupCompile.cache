@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\
 test
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-D:\chp\gitProject\test\test\App.xaml
-2-1919234965
+D:\lcc\gqlx-i\test\App.xaml
+5771462486
 
-4-1158435775
+9629335359
 192-1533232326
-ExampleC.xaml;MainWindow.xaml;
+ExampleC.xaml;MainWindow.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\SelectWindowView.xaml;
 
 False
 
