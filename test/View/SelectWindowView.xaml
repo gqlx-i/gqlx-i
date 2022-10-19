@@ -7,6 +7,46 @@
         mc:Ignorable="d"
         Title="SelectWindowView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <CheckBox Content="快慢打" Grid.Row="0" FontSize="17" VerticalAlignment="Center" Margin="10,5"/>
+            <CheckBox Content="方向" Grid.Row="1" FontSize="17" VerticalAlignment="Center" Margin="10,5"/>
+            <CheckBox Content="检测结果" Grid.Row="2" FontSize="17" VerticalAlignment="Center" Margin="10,5"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="散点图" Grid.Row="0" Grid.Column="0" Height="30" Width="100"/>
+                <Button Content="曲线图" Grid.Row="0" Grid.Column="1" Height="30" Width="100"/>
+                <Button Content="Apply" Grid.Row="1" Grid.Column="0" Height="30" Width="100"/>
+                <Button Content="Close" Grid.Row="1" Grid.Column="1" Height="30" Width="100"/>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>
