@@ -4,12 +4,10 @@ D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.json
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.dev.json
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.dll
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.pdb
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\ExampleC.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\App.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test_MarkupCompile.cache
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test_MarkupCompile.lref
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\ExampleC.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\MainWindow.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.g.resources
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.GeneratedMSBuildEditorConfig.editorconfig
@@ -20,6 +18,7 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.dll
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.pdb
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache
+<<<<<<< HEAD
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\ExampleC.g.cs
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\MainWindow.g.cs
@@ -48,3 +47,14 @@ D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\test.AssemblyInfoInputs.cache
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\test.AssemblyInfo.cs
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\test.csproj.CoreCompileInputs.cache
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
+=======
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\MappingView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\OptionsWindowView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\SelectWindowView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\MappingView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\OptionsWindowView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\SelectWindowView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.baml
+>>>>>>> origin/master

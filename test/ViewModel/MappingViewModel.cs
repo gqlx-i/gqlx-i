@@ -7,6 +7,7 @@ namespace test.ViewModel
     class MappingViewModel
     {
         public MapChangeItem mcItem { get; set; }
+        public bool Isccc { get; set; } = false;
         public List<MapChangeItem> MapChangeList { get; set; } = new List<MapChangeItem>()
         {
             new MapChangeItem(){ Glass="Glass行列显示" }

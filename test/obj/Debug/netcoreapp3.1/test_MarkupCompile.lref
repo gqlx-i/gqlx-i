@@ -1,8 +1,16 @@
 ﻿
 
+<<<<<<< HEAD
 FD:\lcc\gqlx-i\test\ExampleC.xaml;;
 FD:\lcc\gqlx-i\test\MainWindow.xaml;;
 FD:\lcc\gqlx-i\test\View\MappingView.xaml;;
 FD:\lcc\gqlx-i\test\View\OptionsWindowView.xaml;;
 FD:\lcc\gqlx-i\test\View\SelectWindowView.xaml;;
+=======
+FD:\chp\gitProject\test\test\MainWindow.xaml;;
+FD:\chp\gitProject\test\test\View\MappingView.xaml;;
+FD:\chp\gitProject\test\test\View\OptionsWindowView.xaml;;
+FD:\chp\gitProject\test\test\View\SelectWindowView.xaml;;
+FD:\chp\gitProject\test\test\Resources\ExampleC.xaml;;
+>>>>>>> origin/master
 
