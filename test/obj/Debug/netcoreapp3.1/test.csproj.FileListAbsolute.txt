@@ -4,11 +4,12 @@ D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.json
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.dev.json
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.dll
 D:\chp\gitProject\test\test\bin\Debug\netcoreapp3.1\test.pdb
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\ExampleC.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\App.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test_MarkupCompile.cache
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test_MarkupCompile.lref
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\ExampleC.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\MainWindow.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.g.resources
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.GeneratedMSBuildEditorConfig.editorconfig
@@ -18,3 +19,4 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.CoreCompileInput
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.dll
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.pdb
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache

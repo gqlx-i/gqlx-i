@@ -25,10 +25,17 @@ namespace test
         private bool isLeftButtonUp = true;
         private bool isShiftKeyUp = true;
         private Point tempStartPoint;
+        private int yMaxValue = 10;
+        private int yInterview = 10;
+        private int xMaxValue = 10;
+        private int xInterview = 10;
+        private int LargePx = 10;
+        private int ShortPx = 5;
         public MainWindow()
         {
             InitializeComponent();
             DrawAxisAndText();
+            ExampleChanged();
         }
 
         /// <summary>
@@ -38,11 +45,11 @@ namespace test
         /// <returns></returns>
         private double TransFromX(double value)
         {
-            return (double)(((decimal)value / 10) * (decimal)(CanvasInPath.Width) / 10/* - (decimal)XOffset*/);
+            return (double)((decimal)value / 10 * (decimal)CanvasInPath.Width / 10);
         }
         private double TransFromY(double value)
         {
-            return (double)(((decimal)value / 10) * (decimal)(CanvasInPath.Height) / 10/* - (decimal)YOffset*/);
+            return (double)((decimal)value / 10 * (decimal)CanvasInPath.Height / 10);
         }
 
         /// <summary>
@@ -93,63 +100,141 @@ namespace test
             Line lineX = new Line()
             {
                 Stroke = new SolidColorBrush(Colors.Black),
-                StrokeDashArray = new DoubleCollection(6),
                 StrokeThickness = 1,
             };
-            Canvas.SetZIndex(lineX, 0);
-
             lineX.X1 = 0;
             lineX.X2 = 0;
             lineX.Y1 = 0;
             lineX.Y2 = CanvasInPath.Height;
-
             CanvasInPath.Children.Add(lineX);
 
             Line lineY = new Line()
             {
                 Stroke = new SolidColorBrush(Colors.Black),
-                StrokeDashArray = new DoubleCollection(6),
                 StrokeThickness = 1,
             };
-            Canvas.SetZIndex(lineY, 0);
             lineY.X1 = 0;
             lineY.X2 = CanvasInPath.Width;
             lineY.Y1 = (double)(decimal)CanvasInPath.Height;
             lineY.Y2 = (double)(decimal)CanvasInPath.Height;
             CanvasInPath.Children.Add(lineY);
-            for (int i = 0, j = 0; i < 10; ++i)
+
+            //轴标Y
+            TextBlock yAxisLabel = new TextBlock();
+            yAxisLabel.Foreground = new SolidColorBrush(Colors.Black);
+            yAxisLabel.FontSize = 12;
+            yAxisLabel.Text = "column";
+            yAxisLabel.LayoutTransform = new RotateTransform()
             {
-                //刻度
+                Angle = 90,
+            };
+            Canvas.SetLeft(yAxisLabel, -50);
+            Canvas.SetTop(yAxisLabel, TransFromY(yMaxValue * yInterview / 2));
+            CanvasInPath.Children.Add(yAxisLabel);
+            //轴标X
+            TextBlock xAxisLabel = new TextBlock();
+            xAxisLabel.Foreground = new SolidColorBrush(Colors.Black);
+            xAxisLabel.FontSize = 12;
+            xAxisLabel.Text = "row";
+            Canvas.SetLeft(xAxisLabel, TransFromX(xMaxValue * xInterview / 2));
+            Canvas.SetTop(xAxisLabel, CanvasInPath.Height + 20);
+
+            CanvasInPath.Children.Add(xAxisLabel);
+            #region 刻度线
+            for (int i = 0; i < yInterview * yMaxValue; ++i)
+            {
+                if (i != 0)
+                {
+                    TextBlock yblock = new TextBlock();
+                    yblock.Foreground = new SolidColorBrush(Colors.Black);
+                    yblock.FontSize = 10;
+                    yblock.Text = i + "";
+                    Canvas.SetLeft(yblock, -25);
+                    Canvas.SetTop(yblock, TransFromY(100 - i));
+                    CanvasInPath.Children.Add(yblock);
+                    if (i % yInterview == 0)
+                    {
+                        Line ly = new Line()
+                        {
+                            Stroke = new SolidColorBrush(Colors.Black),
+                            StrokeThickness = 1,
+                        };
+                        ly.X1 = 0;
+                        ly.X2 = LargePx;
+                        ly.Y1 = TransFromY(i);
+                        ly.Y2 = TransFromY(i);
+                        CanvasInPath.Children.Add(ly);
+                    }
+                    else
+                    {
+                        Line ly = new Line()
+                        {
+                            Stroke = new SolidColorBrush(Colors.Black),
+                            StrokeThickness = 1,
+                        };
+                        ly.X1 = 0;
+                        ly.X2 = ShortPx;
+                        ly.Y1 = TransFromY(i);
+                        ly.Y2 = TransFromY(i);
+                        CanvasInPath.Children.Add(ly);
+                    }
+                }
+            }
+            for (int i = 0; i < xMaxValue * xInterview; ++i)
+            {
                 TextBlock xblock = new TextBlock();
                 xblock.Foreground = new SolidColorBrush(Colors.Black);
                 xblock.FontSize = 10;
-                xblock.Text = i * 10 + "";
-                Canvas.SetLeft(xblock, TransFromX(i * 10));
+                xblock.Text = i + "";
+                Canvas.SetLeft(xblock, TransFromX(i));
                 Canvas.SetTop(xblock, CanvasInPath.Height);
                 CanvasInPath.Children.Add(xblock);
-                Canvas.SetZIndex(xblock, 1);
-
-                j = 10 - i;
-
-                TextBlock yblock = new TextBlock();
-                yblock.Foreground = new SolidColorBrush(Colors.Black);
-                yblock.FontSize = 10;
-                //translateTransform = new TranslateTransform(0, yblock.ActualWidth);
-                //scaleTransform = new ScaleTransform();
-                //scaleTransform.ScaleY = 1;
-                //transformGroup = new TransformGroup();
-                //transformGroup.Children.Add(translateTransform);
-                //transformGroup.Children.Add(scaleTransform);
-                //yblock.RenderTransform = transformGroup;
-
-                yblock.Text = j * 10 + "";
-                Canvas.SetLeft(yblock, 0);
-                Canvas.SetTop(yblock, TransFromY(i * 10));
-                CanvasInPath.Children.Add(yblock);
-                Canvas.SetZIndex(yblock, 1);
+                if (i % xInterview == 0)
+                {
+                    Line lx = new Line()
+                    {
+                        Stroke = new SolidColorBrush(Colors.Black),
+                        StrokeThickness = 1,
+                    };
+                    lx.X1 = TransFromX(i);
+                    lx.X2 = TransFromX(i);
+                    lx.Y1 = CanvasInPath.Height;
+                    lx.Y2 = CanvasInPath.Height - LargePx;
+                    CanvasInPath.Children.Add(lx);
+                }
+                else
+                {
+                    Line lx = new Line()
+                    {
+                        Stroke = new SolidColorBrush(Colors.Black),
+                        StrokeThickness = 1,
+                    };
+                    lx.X1 = TransFromX(i);
+                    lx.X2 = TransFromX(i);
+                    lx.Y1 = CanvasInPath.Height;
+                    lx.Y2 = CanvasInPath.Height - ShortPx;
+                    CanvasInPath.Children.Add(lx);
+                }
             }
+            #endregion
+            
         }
-
+        //图例改变触发事件
+        private void ExampleChanged()
+        {
+            #region Pad
+            for (int i = 1; i < xInterview * xMaxValue; ++i)
+            {
+                for (int j = 1; j < yInterview * yMaxValue; ++j)
+                {
+                    ExampleC exampleC = new ExampleC();
+                    Canvas.SetLeft(exampleC, TransFromX(i - 0.2));
+                    Canvas.SetTop(exampleC, TransFromY(100 - j - 0.25));
+                    CanvasInPath.Children.Add(exampleC);
+                }
+            }
+            #endregion
+        }
         #region 键盘事件监听
         // Shift按下
         private void Window_Keydown(object sender, KeyEventArgs e)
@@ -236,7 +321,7 @@ namespace test
                 currentBoxSelectedBorder.Background = new SolidColorBrush(Colors.Orange);
                 currentBoxSelectedBorder.Opacity = 0.4;
                 currentBoxSelectedBorder.BorderThickness = new Thickness(2);
-                currentBoxSelectedBorder.BorderBrush = new SolidColorBrush(Colors.OrangeRed);
+                currentBoxSelectedBorder.BorderBrush = new SolidColorBrush(Colors.LightBlue);
                 Canvas.SetZIndex(currentBoxSelectedBorder, 100);
                 this.CanvasInPath.Children.Add(currentBoxSelectedBorder);
             }
@@ -255,9 +340,9 @@ namespace test
         /// <summary>
         /// 获得所有子控件
         /// </summary>
-        public static List<T> GetChildObjects<T>(System.Windows.DependencyObject obj) where T : System.Windows.FrameworkElement
+        public static List<T> GetChildObjects<T>(DependencyObject obj) where T : FrameworkElement
         {
-            System.Windows.DependencyObject child = null;
+            DependencyObject child = null;
             List<T> childList = new List<T>();
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
             {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="900" Width="1600"
         KeyDown="Window_Keydown"
         KeyUp="Window_KeyUp">
     <Grid>
@@ -34,22 +34,11 @@
             <ComboBox Width="100" Height="30" Margin="10,5,10,5" VerticalContentAlignment="Center"/>
         </StackPanel>
         <Label Grid.Row="0" Grid.Column="2" Content="搜索结果：xx" Width="150" Height="30" Margin="0,5,10,5" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
-        <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" Background="LightGray" BorderThickness="1" Margin="10,5,10,5">
+        <!--<ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" Background="LightGray" BorderThickness="1" Margin="10,5,10,5">
             
-        </ListBox>
-        <Canvas Visibility="Hidden" Background="Aqua" x:Name="CanvasInPath" Cursor="Arrow" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="800" Height="450" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
-            <Rectangle Width="25" Height="25" Canvas.Left="100" Canvas.Top="50" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="150" Canvas.Top="50" Fill="Blue"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="200" Canvas.Top="50" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="250" Canvas.Top="50" Fill="Blue"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="300" Canvas.Top="50" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="350" Canvas.Top="50" Fill="Blue"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="100" Canvas.Top="100" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="150" Canvas.Top="100" Fill="Blue"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="200" Canvas.Top="100" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="250" Canvas.Top="100" Fill="Blue"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="300" Canvas.Top="100" Fill="Red"></Rectangle>
-            <Rectangle Width="25" Height="25" Canvas.Left="350" Canvas.Top="100" Fill="Blue"></Rectangle>
+        </ListBox>-->
+        <Canvas x:Name="CanvasInPath" Background="Aqua" Cursor="Arrow" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="1500" Height="800" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
+            
         </Canvas>
     </Grid>
 </Window>
