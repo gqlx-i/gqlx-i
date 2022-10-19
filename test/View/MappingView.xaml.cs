@@ -18,8 +18,15 @@ namespace test.View
     /// </summary>
     public partial class MappingView : UserControl
     {
+        public void OptionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsWindowView OpWindow = new OptionsWindowView();
+            OpWindow.ShowDialog();
+        }
+
         public MappingView()
         {
+            this.DataContext = new MappingViewModel();
             InitializeComponent();
         }
     }

@@ -6,7 +6,150 @@
         xmlns:local="clr-namespace:test.View"
         mc:Ignorable="d"
         Title="OptionsWindowView" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="RadioButton" x:Key="RadioButtonRec">
+            <Style.Setters>
+                <Setter Property="Tag">
+                    <Setter.Value>
+                        <SolidColorBrush Color="black"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <StackPanel Orientation="Horizontal">
+                                <Border x:Name="bd" BorderBrush="black" BorderThickness="2" Margin="5,2">
+                                    <Rectangle Width="10" Height="10" Fill="White"/>
+                                </Border>
+                                <ContentPresenter/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="bd">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="black" Opacity="0.5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="8,3" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="色调" VerticalAlignment="Center" Margin="5"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <RadioButton Content="Non" Command="{Binding NonButton}" IsChecked="True" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="时间" Command="{Binding TimeButton}" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX21" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY21" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <RadioButton Content="PEX12" VerticalAlignment="Center" Margin="105,4,4,4"/>
+                <RadioButton Content="PEY12" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX22" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY22" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <RadioButton Content="MoveX1" VerticalAlignment="Center" Margin="105,4,4,4"/>
+                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="InposeTime" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+
+
+        </Grid>
+
+        <Grid Margin="8,3" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="折线" VerticalAlignment="Center" Margin="5"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <RadioButton Content="PEX11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX21" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY21" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <RadioButton Content="PEX12" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY12" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX22" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY22" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <RadioButton Content="MoveX1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <RadioButton Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="8,3" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="箭头" VerticalAlignment="Center" Margin="5"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <RadioButton Content="PE(X11,Y11)" Style="{DynamicResource RadioButtonRec}" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PE(X12,Y12)" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="Move(X1,Y1)" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="VelX1Y1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="Offset(X,Y)" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <RadioButton Content="PE(X21,Y21)" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PE(X22,Y22)" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="Move(X2,Y2)" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="VelX2Y2" VerticalAlignment="Center" Margin="4"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <Button Content="相关系数" Height="30" Width="80" Margin="6"/>
+                <Button Content="确定" Height="30" Width="80" Margin="6"/>
+                <Button Content="取消" Height="30" Width="80" Margin="6"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
