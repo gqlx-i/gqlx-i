@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test.View"
         mc:Ignorable="d"
-        Title="SelectWindowView" Height="450" Width="800">
+        Title="筛选" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -26,10 +26,10 @@
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="6*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" Grid.Column="1">
@@ -41,12 +41,12 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Content="散点图" Grid.Row="0" Grid.Column="0" Height="30" Width="100"/>
+                <Button Content="散点图" Click="ScatterPlot_Click" Grid.Row="0" Grid.Column="0" Height="30" Width="100"/>
                 <Button Content="曲线图" Grid.Row="0" Grid.Column="1" Height="30" Width="100"/>
                 <Button Content="Apply" Grid.Row="1" Grid.Column="0" Height="30" Width="100"/>
-                <Button Content="Close" Grid.Row="1" Grid.Column="1" Height="30" Width="100"/>
+                <Button Content="Close" Click="CloseWindow_Click" Grid.Row="1" Grid.Column="1" Height="30" Width="100"/>
             </Grid>
         </Grid>
-
+        
     </Grid>
 </Window>

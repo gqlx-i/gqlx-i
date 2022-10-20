@@ -56,27 +56,27 @@
 
             <TextBlock Text="色调" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <RadioButton Content="Non" Command="{Binding NonButton}" IsChecked="True" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="时间" Command="{Binding TimeButton}" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX21" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY21" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="Non" GroupName="non" Command="{Binding NonButton}" IsChecked="True" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="时间" GroupName="time" Command="{Binding TimeButton}" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX11" GroupName="pex11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY11" GroupName="pey11" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX21" GroupName="pex21" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY21" GroupName="pey21" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="OffsetX" GroupName="offsetX" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="OffsetY" GroupName="offsetY" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <RadioButton Content="PEX12" VerticalAlignment="Center" Margin="105,4,4,4"/>
-                <RadioButton Content="PEY12" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX22" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY22" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX12" GroupName="pex12" VerticalAlignment="Center" Margin="105,4,4,4"/>
+                <RadioButton Content="PEY12" GroupName="pey12" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEX22" GroupName="pex22" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="PEY22" GroupName="pey22" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <RadioButton Content="MoveX1" VerticalAlignment="Center" Margin="105,4,4,4"/>
-                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="InposeTime" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveX1" GroupName="moveX1" VerticalAlignment="Center" Margin="105,4,4,4"/>
+                <RadioButton Content="MoveY1" GroupName="moveY1" VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveX2" GroupName="moveX2"  VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="MoveY1" GroupName="moveY2"  VerticalAlignment="Center" Margin="4"/>
+                <RadioButton Content="InposeTime" GroupName="inposeTime" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
 
 
@@ -93,26 +93,26 @@
 
             <TextBlock Text="折线" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <RadioButton Content="PEX11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX21" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY21" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEX11" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEY11" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEX21" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEY21" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <RadioButton Content="PEX12" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY12" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX22" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY22" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEX12" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEY12" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEX22" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEY22" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <RadioButton Content="MoveX1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="MoveX1" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <RadioButton Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
         </Grid>
 
@@ -125,17 +125,17 @@
 
             <TextBlock Text="箭头" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <RadioButton Content="PE(X11,Y11)" Style="{DynamicResource RadioButtonRec}" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PE(X12,Y12)" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="Move(X1,Y1)" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="VelX1Y1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="Offset(X,Y)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PE(X11,Y11)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PE(X12,Y12)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="Move(X1,Y1)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="VelX1Y1" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="Offset(X,Y)" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <RadioButton Content="PE(X21,Y21)" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PE(X22,Y22)" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="Move(X2,Y2)" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="VelX2Y2" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PE(X21,Y21)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PE(X22,Y22)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="Move(X2,Y2)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="VelX2Y2" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
         </Grid>
 
@@ -146,9 +146,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Column="2">
-                <Button Content="相关系数" Height="30" Width="80" Margin="6"/>
-                <Button Content="确定" Height="30" Width="80" Margin="6"/>
-                <Button Content="取消" Height="30" Width="80" Margin="6"/>
+                <Button Content="相关系数" Height="30" Width="80" Margin="3"/>
+                <Button Content="确定" Height="30" Width="80" Margin="3"/>
+                <Button Content="取消" Height="30" Width="80" Margin="3"/>
             </StackPanel>
         </Grid>
     </Grid>

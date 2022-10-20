@@ -8,17 +8,21 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Maxwell\\.nuget\\packages\\": {}
+    "C:\\Users\\Maxwell\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\chp\\gitProject\\test\\test\\test.csproj",
+      "projectUniqueName": "D:\\lcc\\gqlx-i\\test\\test.csproj",
       "projectName": "test",
-      "projectPath": "D:\\chp\\gitProject\\test\\test\\test.csproj",
+      "projectPath": "D:\\lcc\\gqlx-i\\test\\test.csproj",
       "packagesPath": "C:\\Users\\Maxwell\\.nuget\\packages\\",
-      "outputPath": "D:\\chp\\gitProject\\test\\test\\obj\\",
+      "outputPath": "D:\\lcc\\gqlx-i\\test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\Maxwell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -64,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
       }
     }
   }

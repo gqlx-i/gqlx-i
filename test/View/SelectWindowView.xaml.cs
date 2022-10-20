@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using test.ViewModel;
 
 namespace test.View
 {
@@ -20,6 +21,18 @@ namespace test.View
         public SelectWindowView()
         {
             InitializeComponent();
+            this.DataContext = new SelectWindowViewModel();
+        }
+
+        public void ScatterPlot_Click(object sender, RoutedEventArgs e)
+        {
+            ScatterPlotWindowView scatterPlotWindow = new ScatterPlotWindowView();
+            scatterPlotWindow.ShowDialog();
+        }
+
+        public void CloseWindow_Click(object sender,RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
