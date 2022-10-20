@@ -17,7 +17,6 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.CoreCompileInput
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.dll
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.pdb
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\MappingView.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\OptionsWindowView.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\SelectWindowView.g.cs
@@ -27,3 +26,8 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\OptionsWindowView.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\SelectWindowView.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\CorrelationView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\CorrelationView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\InfoCompareView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\InfoCompareView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache

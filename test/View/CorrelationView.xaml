@@ -1,0 +1,21 @@
+﻿<Window x:Class="test.View.CorrelationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test.View"
+        mc:Ignorable="d"
+        Title="CorrelationView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <ComboBox Width="80" Height="30" Margin="10"/>
+        </StackPanel>
+        <Canvas x:Name="CorrelationCanvas" Grid.Row="1" Background="LightGray" Margin="10">
+            
+        </Canvas>
+    </Grid>
+</Window>

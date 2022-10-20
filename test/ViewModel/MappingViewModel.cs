@@ -7,6 +7,8 @@ namespace test.ViewModel
     class MappingViewModel
     {
         public MapChangeItem mcItem { get; set; }
+        public string PadInfo { get; set; } = "123";
+
         public bool Isccc { get; set; } = false;
         public List<MapChangeItem> MapChangeList { get; set; } = new List<MapChangeItem>()
         {

@@ -14,8 +14,15 @@ namespace test.Common
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
+        {        
+            if ((string)value == "Hidden" || (string)value == "Collapsed")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

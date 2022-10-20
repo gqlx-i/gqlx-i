@@ -10,6 +10,12 @@
     <Compile Update="Resources\ExampleC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CorrelationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\InfoCompareView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MappingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +31,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CorrelationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\InfoCompareView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MappingView.xaml">

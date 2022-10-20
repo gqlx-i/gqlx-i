@@ -10,6 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using test.Infomation;
+using test.View;
+using test.ViewModel;
 
 namespace test.Resources
 {
@@ -21,6 +24,18 @@ namespace test.Resources
         public ExampleC()
         {
             InitializeComponent();
+        }
+        private void ExampleC_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Base bs = Base.GetInstance();
+            bs.InfoCompareViewModel.AddPadInfo(new PadInfo());
+            if (!bs.InfoCompareWindowIsOpen)
+            {
+                InfoCompareView infoCompare = new InfoCompareView();
+                infoCompare.Show();
+                bs.InfoCompareWindowIsOpen = true;
+                infoCompare.Closed += (s, e) => bs.InfoCompareWindowIsOpen = false;
+            }
         }
     }
 }
