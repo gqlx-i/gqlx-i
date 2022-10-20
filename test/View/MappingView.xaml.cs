@@ -31,12 +31,7 @@ namespace test.View
         private int xInterview = 10;
         private int LargePx = 10;
         private int ShortPx = 5;
-        public void OptionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView OpWindow = new OptionsWindowView();
-            OpWindow.ShowDialog();
-        }
-
+        
         public MappingView()
         {
             this.DataContext = new MappingViewModel();
@@ -44,10 +39,36 @@ namespace test.View
             DrawAxisAndText();
             ExampleChanged();
         }
+
+        public void OptionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsWindowView OpWindow = new OptionsWindowView();
+            OpWindow.ShowDialog();
+        }
+
         public void Select_Click(object sender, RoutedEventArgs e)
         {
-           
+            SelectWindowView selectWindow = new SelectWindowView();
+            selectWindow.ShowDialog();
         }
+
+        private void IsCheck(object sender, RoutedEventArgs e)
+        {            
+                pop.IsOpen = true;
+        }
+
+        public void check(object sender, RoutedEventArgs e)
+        {
+            OptionsWindowView exampleView = new OptionsWindowView();
+            exampleView.Show();      
+        }
+        public void uncheck(object sender, RoutedEventArgs e)
+        {
+            OptionsWindowView exampleView = new OptionsWindowView();
+            exampleView.Hide();
+        }
+        
+
         #region 键盘事件监听
         // Shift按下
         private void Window_Keydown(object sender, KeyEventArgs e)

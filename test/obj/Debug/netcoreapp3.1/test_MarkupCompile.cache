@@ -9,21 +9,12 @@ test
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-<<<<<<< HEAD
 D:\lcc\gqlx-i\test\App.xaml
-5771462486
+61666188850
 
-9629335359
+12382056437
 192-1533232326
-ExampleC.xaml;MainWindow.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\SelectWindowView.xaml;
-=======
-D:\chp\gitProject\test\test\App.xaml
-5256888034
-
-10128320169
-192-1533232326
-MainWindow.xaml;Resources\ExampleC.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\SelectWindowView.xaml;
->>>>>>> origin/master
+MainWindow.xaml;Resources\ExampleC.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\ScatterPlotWindowView.xaml;View\SelectWindowView.xaml;
 
 False
 

@@ -58,3 +58,10 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\SelectWindowView.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.baml
 >>>>>>> origin/master
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.g.cs
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\Resources\ExampleC.baml
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ExampleWindowView.g.cs
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ExampleWindowView.baml
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.g.cs
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.baml
