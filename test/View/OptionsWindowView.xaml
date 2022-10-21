@@ -146,9 +146,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Column="2">
-                <Button Content="相关系数" Height="30" Width="80" Margin="3"/>
-                <Button Content="确定" Height="30" Width="80" Margin="3"/>
-                <Button Content="取消" Height="30" Width="80" Margin="3"/>
+                <Button Content="相关系数" Command="{Binding CorrelationWindowShowCommand}" Height="30" Width="80" Margin="3"/>
+                <Button Content="确定" Command="{Binding ExampleSelectionChanged}" Height="30" Width="80" Margin="3"/>
+                <Button Content="取消" Command="{Binding OptionsWindowHideCommand}" Height="30" Width="80" Margin="3"/>
             </StackPanel>
         </Grid>
     </Grid>

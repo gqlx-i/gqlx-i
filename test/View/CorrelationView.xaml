@@ -8,13 +8,13 @@
         Title="CorrelationView" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-            <ComboBox Width="80" Height="30" Margin="10"/>
+            <ComboBox ItemsSource="{Binding XLabelList}" SelectedItem="{Binding SelectedXLabel}" SelectionChanged="XLabelChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="80" Height="30" Margin="10,0,10,0"/>
         </StackPanel>
-        <Canvas x:Name="CorrelationCanvas" Grid.Row="1" Background="LightGray" Margin="10">
+        <Canvas x:Name="CorrelationCanvas" Grid.Row="1" Width="600" Height="300">
             
         </Canvas>
     </Grid>

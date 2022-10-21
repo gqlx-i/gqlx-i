@@ -23,10 +23,5 @@ namespace test.View
             InitializeComponent();
             this.DataContext = Base.GetInstance().InfoCompareViewModel;
         }
-
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    this.padInfoDataGrid.Items.Refresh();
-        //}
     }
 }

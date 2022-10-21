@@ -26,49 +26,19 @@ namespace test.View
         private Border currentBoxSelectedBorder = null;//拖动展示的提示框
         private Point tempStartPoint;
         private int yMaxValue = 10;
-        private int yInterview = 10;
+        private int yInterval = 10;
         private int xMaxValue = 10;
-        private int xInterview = 10;
-        private int LargePx = 10;
-        private int ShortPx = 5;
+        private int xInterval = 10;
+        private int largePx = 10;
+        private int shortPx = 5;
         
         public MappingView()
         {
-            this.DataContext = new MappingViewModel();
+            this.DataContext = Base.GetInstance().MappingViewModel;
             InitializeComponent();
             DrawAxisAndText();
             ExampleChanged();
         }
-
-        public void OptionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView OpWindow = new OptionsWindowView();
-            OpWindow.ShowDialog();
-        }
-
-        public void Select_Click(object sender, RoutedEventArgs e)
-        {
-            SelectWindowView selectWindow = new SelectWindowView();
-            selectWindow.ShowDialog();
-        }
-
-        private void IsCheck(object sender, RoutedEventArgs e)
-        {            
-                pop.IsOpen = true;
-        }
-
-        public void check(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView exampleView = new OptionsWindowView();
-            exampleView.Show();      
-        }
-        public void uncheck(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView exampleView = new OptionsWindowView();
-            exampleView.Hide();
-        }
-        
-
         #region 键盘事件监听
         // Shift按下
         private void Window_Keydown(object sender, KeyEventArgs e)
@@ -156,18 +126,6 @@ namespace test.View
         {
             return (double)((decimal)value / 10 * (decimal)CanvasInPath.Height / 10);
         }
-
-        /// <summary>
-        /// 获取小球的坐标轴刻度
-        /// </summary>
-        /// <param dot="小球对象"></param>
-        /// <returns></returns>
-        private double[] GetValueOfAxis(Ellipse dot)
-        {
-            double x1 = (double)((decimal)(Canvas.GetLeft(dot)/* + XOffset*/) / (decimal)(CanvasInPath.Width / 100));
-            double y1 = (double)((decimal)(Canvas.GetTop(dot)/* + YOffset*/) / (decimal)(CanvasInPath.Height / 100));
-            return new double[2] { x1, y1 };
-        }
         /// <summary>
         /// 绘制坐标轴和刻度
         /// </summary>
@@ -203,22 +161,22 @@ namespace test.View
             yAxisLabel.Text = "column";
             yAxisLabel.LayoutTransform = new RotateTransform()
             {
-                Angle = 90,
+                Angle = 270,
             };
             Canvas.SetLeft(yAxisLabel, -50);
-            Canvas.SetTop(yAxisLabel, TransFromY(yMaxValue * yInterview / 2));
+            Canvas.SetTop(yAxisLabel, TransFromY(yMaxValue * yInterval / 2));
             CanvasInPath.Children.Add(yAxisLabel);
             //轴标X
             TextBlock xAxisLabel = new TextBlock();
             xAxisLabel.Foreground = new SolidColorBrush(Colors.Black);
             xAxisLabel.FontSize = 12;
             xAxisLabel.Text = "row";
-            Canvas.SetLeft(xAxisLabel, TransFromX(xMaxValue * xInterview / 2));
+            Canvas.SetLeft(xAxisLabel, TransFromX(xMaxValue * xInterval / 2));
             Canvas.SetTop(xAxisLabel, CanvasInPath.Height + 20);
 
             CanvasInPath.Children.Add(xAxisLabel);
             #region 刻度线
-            for (int i = 0; i < yInterview * yMaxValue; ++i)
+            for (int i = 0; i < yInterval * yMaxValue; ++i)
             {
                 if (i != 0)
                 {
@@ -229,7 +187,7 @@ namespace test.View
                     Canvas.SetLeft(yblock, -25);
                     Canvas.SetTop(yblock, TransFromY(100 - i));
                     CanvasInPath.Children.Add(yblock);
-                    if (i % yInterview == 0)
+                    if (i % yInterval == 0)
                     {
                         Line ly = new Line()
                         {
@@ -237,7 +195,7 @@ namespace test.View
                             StrokeThickness = 1,
                         };
                         ly.X1 = 0;
-                        ly.X2 = LargePx;
+                        ly.X2 = largePx;
                         ly.Y1 = TransFromY(i);
                         ly.Y2 = TransFromY(i);
                         CanvasInPath.Children.Add(ly);
@@ -250,14 +208,14 @@ namespace test.View
                             StrokeThickness = 1,
                         };
                         ly.X1 = 0;
-                        ly.X2 = ShortPx;
+                        ly.X2 = shortPx;
                         ly.Y1 = TransFromY(i);
                         ly.Y2 = TransFromY(i);
                         CanvasInPath.Children.Add(ly);
                     }
                 }
             }
-            for (int i = 0; i < xMaxValue * xInterview; ++i)
+            for (int i = 0; i < xMaxValue * xInterval; ++i)
             {
                 TextBlock xblock = new TextBlock();
                 xblock.Foreground = new SolidColorBrush(Colors.Black);
@@ -266,7 +224,7 @@ namespace test.View
                 Canvas.SetLeft(xblock, TransFromX(i));
                 Canvas.SetTop(xblock, CanvasInPath.Height);
                 CanvasInPath.Children.Add(xblock);
-                if (i % xInterview == 0)
+                if (i % xInterval == 0)
                 {
                     Line lx = new Line()
                     {
@@ -276,7 +234,7 @@ namespace test.View
                     lx.X1 = TransFromX(i);
                     lx.X2 = TransFromX(i);
                     lx.Y1 = CanvasInPath.Height;
-                    lx.Y2 = CanvasInPath.Height - LargePx;
+                    lx.Y2 = CanvasInPath.Height - largePx;
                     CanvasInPath.Children.Add(lx);
                 }
                 else
@@ -289,7 +247,7 @@ namespace test.View
                     lx.X1 = TransFromX(i);
                     lx.X2 = TransFromX(i);
                     lx.Y1 = CanvasInPath.Height;
-                    lx.Y2 = CanvasInPath.Height - ShortPx;
+                    lx.Y2 = CanvasInPath.Height - shortPx;
                     CanvasInPath.Children.Add(lx);
                 }
             }
@@ -300,9 +258,9 @@ namespace test.View
         private void ExampleChanged()
         {
             #region Pad
-            for (int i = 1; i < xInterview * xMaxValue; ++i)
+            for (int i = 1; i < xInterval * xMaxValue; ++i)
             {
-                for (int j = 1; j < yInterview * yMaxValue; ++j)
+                for (int j = 1; j < yInterval * yMaxValue; ++j)
                 {
                     ExampleC exampleC = new ExampleC();
                     Canvas.SetLeft(exampleC, TransFromX(i - 0.2));

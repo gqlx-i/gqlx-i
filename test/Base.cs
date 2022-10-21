@@ -11,11 +11,17 @@ namespace test
         private static Base uniqueInstance;
         public bool InfoCompareWindowIsOpen { get; set; } = false;
         public InfoCompareViewModel InfoCompareViewModel { get; set; }
+        public CorrelationViewModel CorrelationViewModel { get; set; }
+        public OptionsWindowViewModel OptionsWindowViewModel { get; set; }
+        public MappingViewModel MappingViewModel { get; set; }
 
         // 定义私有构造函数，使外界不能创建该类实例
         private Base()
         {
             InfoCompareViewModel = new InfoCompareViewModel();
+            CorrelationViewModel = new CorrelationViewModel();
+            OptionsWindowViewModel = new OptionsWindowViewModel();
+            MappingViewModel = new MappingViewModel();
         }
         public static Base GetInstance()
         {

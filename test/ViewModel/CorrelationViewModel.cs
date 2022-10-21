@@ -5,14 +5,14 @@ using System.Text;
 
 namespace test.ViewModel
 {
-    class CorrelationViewModel : INotifyPropertyChanged
+    public class CorrelationViewModel : INotifyPropertyChanged
     {
         public CorrelationViewModel()
         {
-            XLabelList = new List<string>() { "OffsetX", "OffsetY", "PEX11", "PEY11",
+            _xLabelList = new List<string>() { "OffsetX", "OffsetY", "PEX11", "PEY11",
                 "PEX12", "PEY12", "PEX21", "PEY21", "PEX22", "PEY22", "MoveX1",
                 "MoveY1", "MoveX2", "MoveY2" };
-            SelectedXLabel = "OffsetX";
+            _selectedXLabel = "OffsetX";
         }
         private List<string> _xLabelList;
         private string _selectedXLabel;
@@ -39,7 +39,7 @@ namespace test.ViewModel
             }
             set
             {
-                value = _selectedXLabel;
+                _selectedXLabel = value;
                 if (PropertyChanged != null)
                 {
                     PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SelectedXLabel"));

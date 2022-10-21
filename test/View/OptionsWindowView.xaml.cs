@@ -21,7 +21,7 @@ namespace test.View
         public OptionsWindowView()
         {
             InitializeComponent();
-            this.DataContext = new OptionsWindowViewModel();
+            this.DataContext = Base.GetInstance().OptionsWindowViewModel;
         }
     }
 }

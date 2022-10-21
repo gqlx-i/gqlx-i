@@ -30,4 +30,6 @@ D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\CorrelationView.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\CorrelationView.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\InfoCompareView.g.cs
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\InfoCompareView.baml
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.g.cs
+D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.baml
 D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\test.csproj.AssemblyReference.cache
