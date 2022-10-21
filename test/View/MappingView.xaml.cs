@@ -22,6 +22,7 @@ namespace test.View
     {
         private bool isCanMove = false;//鼠标是否移动
         private bool isLeftButtonUp = true;
+        private bool isRightButtonUp = true;
         private bool isShiftKeyUp = true;
         private Border currentBoxSelectedBorder = null;//拖动展示的提示框
         private Point tempStartPoint;
@@ -38,6 +39,30 @@ namespace test.View
             InitializeComponent();
             DrawAxisAndText();
             ExampleChanged();
+        }
+
+        public void Restore_Click(object sender,RoutedEventArgs e)
+        {
+            scrollView.ScrollToTop();
+            scrollView.PageUp();
+            scrollView.ScrollToLeftEnd();
+            scrollView.PageLeft();
+        }
+
+        public static void ScrollViewToVerticalTop(FrameworkElement element,ScrollViewer scrollViewer)
+        {
+            var scrollViewOffset = scrollViewer.VerticalOffset;
+            var point = new Point(0, scrollViewOffset);
+            var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
+            scrollViewer.ScrollToVerticalOffset(tarPos.Y);
+        }
+
+        public static void ScrollViewToHorizontalRight(FrameworkElement element, ScrollViewer scrollViewer)
+        {
+            var scrollViewOffset = scrollViewer.HorizontalOffset;
+            var point = new Point(scrollViewOffset, 0);
+            var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
+            scrollViewer.ScrollToVerticalOffset(tarPos.X);
         }
 
         public void OptionBtn_Click(object sender, RoutedEventArgs e)
@@ -99,6 +124,16 @@ namespace test.View
             isLeftButtonUp = false;
             isCanMove = true;
             tempStartPoint = e.GetPosition(this.CanvasInPath);
+        }
+
+        private void CanvasInPath_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            isRightButtonUp = false;
+            scrollView.ScrollToTop();
+            scrollView.PageUp();
+            scrollView.PageLeft();
+            //isCanMove = true;
+            //tempStartPoint = e.GetPosition(this.CanvasInPath);
         }
 
         /// <summary>

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="RadioButtonUncheck.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Resources\ExampleC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,6 +27,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="RadioButtonUncheck.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\ExampleC.xaml">
       <SubType>Designer</SubType>
     </Page>

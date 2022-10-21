@@ -65,3 +65,5 @@ D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ExampleWindowView.g.cs
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ExampleWindowView.baml
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.g.cs
 D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\View\ScatterPlotWindowView.baml
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\RadioButtonUncheck.g.cs
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\RadioButtonUncheck.baml
