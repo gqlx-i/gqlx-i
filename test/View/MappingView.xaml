@@ -13,13 +13,13 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <con:Bool2IsVisible x:Key="Bool2IsVisible"/>
-            
+
             <Style x:Key="sliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="Background" Value="CornflowerBlue"/>
             </Style>
 
             <ControlTemplate x:Key="ScrollViewTemplate" TargetType="{x:Type ScrollViewer}">
-                <Grid x:Name="ScrollViewGrid">
+                <Grid x:Name="ScrollViewGrid" Background="{TemplateBinding Background}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
@@ -28,11 +28,50 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="restoreButton" Grid.Row="1" Grid.Column="1" />
-                    <ScrollBar x:Name="verScrollBar"/>
-                    <ScrollBar x:Name="horScrollBar"/>
+                    <Button x:Name="restoreButton" Grid.Row="1" Grid.Column="1" Click="Restore_Click" MouseRightButtonDown="CanvasInPath_MouseRightButtonDown" KeyDown="Window_Keydown">
+                        <Image Source="D:\lcc\gqlx-i\test\Picture\还原按钮.png" Width="15" Height="15"/>
+                    </Button>
+                    <ScrollContentPresenter x:Name="scrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" 
+                                            ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Grid.Row="0" Margin="{TemplateBinding Padding}"/>
+                    <ScrollBar x:Name="verScrollBar" Grid.Row="0" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" ViewportSize="{TemplateBinding ViewportHeight}" 
+                               Minimum="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Height="719" Margin="1,0,1,0" VerticalAlignment="Top" />
+                    <ScrollBar x:Name="horScrollBar" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                               Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" 
+                               ViewportSize="{TemplateBinding ViewportWidth}"/>
                 </Grid>
             </ControlTemplate>
+            <!--上下左右箭头按钮-->
+            <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="Focusable" Value="false"/>
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RepeatButton}">
+                            <Border Background="YellowGreen" CornerRadius="2,2,0,0" Margin="2"  />
+                            
+            <!--<Themes:ScrollChrome x:Name="Chrome" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" SnapsToDevicePixels="true" Themes:ScrollChrome.ScrollGlyph="{TemplateBinding Themes:ScrollChrome.ScrollGlyph}"/>-->
+            
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <!--<Style x:Key="VerticalScrollBarPageButton" TargetType="{x:Type RepeatButton}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Focusable" Value="False"/>
+                <Setter Property="IsTabStop" Value="False"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RepeatButton}">
+                            <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>-->
+
+
             <!--滑块Thumb-->
             <!--<Style x:Key="sliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -172,9 +211,9 @@
                 </TextBlock.LayoutTransform>
             </TextBlock>
             <TextBlock Text="Row" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
-            <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer x:Name="scrollView" Template="{StaticResource ScrollViewTemplate}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <Canvas x:Name="CanvasInPath" Visibility="Hidden" Background="LightGray" Cursor="Arrow" Width="1500" Height="800" Margin="50" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
-                    
+
                 </Canvas>
             </ScrollViewer>
         </Grid>
