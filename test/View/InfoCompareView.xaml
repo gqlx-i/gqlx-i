@@ -1,0 +1,33 @@
+﻿<Window x:Class="test.View.InfoCompareView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test.View"
+        mc:Ignorable="d"
+        Title="InfoCompare" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="padInfoDataGrid" ItemsSource="{Binding PadInfoList}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="GlassRow" Binding="{Binding GlassRow}"/>
+                <DataGridTextColumn Header="GlassColumn" Binding="{Binding GlassColumn}"/>
+                <DataGridTextColumn Header="WaferRow" Binding="{Binding WaferRow}"/>
+                <DataGridTextColumn Header="WaferColumn" Binding="{Binding WaferColumn}"/>
+                <DataGridTextColumn Header="OffsetX" Binding="{Binding OffsetX}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="OffsetY" Binding="{Binding OffsetY}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEX11" Binding="{Binding PEX11}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEY11" Binding="{Binding PEY11}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEX12" Binding="{Binding PEX12}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEY12" Binding="{Binding PEY12}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEX21" Binding="{Binding PEX21}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEY21" Binding="{Binding PEY21}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEX22" Binding="{Binding PEX22}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="PEY22" Binding="{Binding PEY22}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="MoveX1" Binding="{Binding MoveX1}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="MoveY1" Binding="{Binding MoveY1}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="MoveX2" Binding="{Binding MoveX2}" Visibility="{Binding}"/>
+                <DataGridTextColumn Header="MoveY2" Binding="{Binding MoveY2}" Visibility="{Binding}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
