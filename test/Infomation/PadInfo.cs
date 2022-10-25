@@ -1,11 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using test.Resources;
 
 namespace test.Infomation
 {
     public class PadInfo
     {
+        public PadInfo()
+        {
+            Random rd = new Random();
+            OffsetX = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            OffsetY = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEX11 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEY11 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEX12 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEY12 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEX21 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEY21 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEX22 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            PEY22 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            MoveX1 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            MoveY1 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            MoveX2 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+            MoveY2 = Math.Round(rd.NextDouble() * Math.Pow(-1, rd.Next(-1, 1)), 2);
+        }
         public int GlassRow { get; set; } = 0;
         public int GlassColumn { get; set; } = 0;
         public int WaferRow { get; set; } = 0;
@@ -25,5 +44,10 @@ namespace test.Infomation
         public double MoveY1 { get; set; } = 0.6;
         public double MoveX2 { get; set; } = 0.8;
         public double MoveY2 { get; set; } = 1;
+    }
+    public class PadAndInfo
+    {
+        public ExampleC ExampleC { get; set; }
+        public PadInfo PadInfo { get; set; }
     }
 }

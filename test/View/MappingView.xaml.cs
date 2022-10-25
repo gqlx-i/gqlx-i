@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using test.Infomation;
 using test.Resources;
 using test.ViewModel;
 
@@ -26,19 +28,26 @@ namespace test.View
         private bool isShiftKeyUp = true;
         private Border currentBoxSelectedBorder = null;//拖动展示的提示框
         private Point tempStartPoint;
-        private int yMaxValue = 10;
-        private int yInterview = 10;
-        private int xMaxValue = 10;
-        private int xInterview = 10;
-        private int LargePx = 10;
-        private int ShortPx = 5;
+        private int yLength = 10;
+        private int yInterval = 10;
+        private int xLength = 10;
+        private int xInterval = 10;
+        private int xMaxValue = 0;
+        private int yMaxValue = 0;
+        private int largePx = 10;
+        private int shortPx = 5;
+        private double scale = 1;
+        private List<PadAndInfo> rectSelectedPadAndInfos = new List<PadAndInfo>();
         
         public MappingView()
         {
-            this.DataContext = new MappingViewModel();
             InitializeComponent();
-            DrawAxisAndText();
-            ExampleChanged();
+            this.DataContext = Base.GetInstance().MappingViewModel;
+            xLength = (int)CanvasInPath.Width;
+            yLength = (int)CanvasInPath.Height;
+            DrawPadMap(xLength, yLength);
+            DrawPadMapLabel(0, 0, xLength, yLength);
+            ExampleChanged(xLength, yLength);
         }
 
         public void Restore_Click(object sender,RoutedEventArgs e)
@@ -65,35 +74,6 @@ namespace test.View
             scrollViewer.ScrollToVerticalOffset(tarPos.X);
         }
 
-        public void OptionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView OpWindow = new OptionsWindowView();
-            OpWindow.ShowDialog();
-        }
-
-        public void Select_Click(object sender, RoutedEventArgs e)
-        {
-            SelectWindowView selectWindow = new SelectWindowView();
-            selectWindow.ShowDialog();
-        }
-
-        private void IsCheck(object sender, RoutedEventArgs e)
-        {            
-                pop.IsOpen = true;
-        }
-
-        public void check(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView exampleView = new OptionsWindowView();
-            exampleView.Show();      
-        }
-        public void uncheck(object sender, RoutedEventArgs e)
-        {
-            OptionsWindowView exampleView = new OptionsWindowView();
-            exampleView.Hide();
-        }
-        
-
         #region 键盘事件监听
         // Shift按下
         private void Window_Keydown(object sender, KeyEventArgs e)
@@ -114,7 +94,6 @@ namespace test.View
             }
         }
         #endregion
-
         #region 鼠标事件监听
         /// <summary>
         /// 鼠标按下记录起始点
@@ -125,7 +104,6 @@ namespace test.View
             isCanMove = true;
             tempStartPoint = e.GetPosition(this.CanvasInPath);
         }
-
         private void CanvasInPath_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             isRightButtonUp = false;
@@ -135,7 +113,6 @@ namespace test.View
             //isCanMove = true;
             //tempStartPoint = e.GetPosition(this.CanvasInPath);
         }
-
         /// <summary>
         /// 框选逻辑
         /// </summary>
@@ -148,7 +125,6 @@ namespace test.View
                 DrawMultiselectBorder(tempEndPoint, tempStartPoint);
             }
         }
-
         /// <summary>
         /// 鼠标抬起时清除选框
         /// </summary>
@@ -162,75 +138,59 @@ namespace test.View
                 Point tempEndPoint = e.GetPosition(this.CanvasInPath);
                 Rect tempRect = new Rect(tempStartPoint, tempEndPoint);
                 //获取子控件
-                List<Rectangle> childList = GetChildObjects<Rectangle>(this.CanvasInPath);
+                List<ExampleC> childList = GetChildObjects<ExampleC>(this.CanvasInPath);
                 foreach (var child in childList)
                 {
                     //获取子控件矩形位置
                     Rect childRect = new Rect(Canvas.GetLeft(child), Canvas.GetTop(child), child.Width, child.Height);
+                    PadAndInfo padAndInfo = new PadAndInfo();
                     //若子控件与选框相交则改变样式
                     if (childRect.IntersectsWith(tempRect))
+                    {
+                        padAndInfo.ExampleC = child;
+                        padAndInfo.PadInfo = new PadInfo();
+                        padAndInfo.PadInfo.GlassColumn = GetPadPosition(child, xInterval);
+                        padAndInfo.PadInfo.GlassRow = GetPadPosition(child, yInterval);
+                        rectSelectedPadAndInfos.Add(padAndInfo);
                         child.Opacity = 0.4;
+                    }                   
+                }
+                if (rectSelectedPadAndInfos.Count != 0)
+                {
+                    DrawROI();
                 }
                 this.CanvasInPath.Children.Remove(currentBoxSelectedBorder);
                 currentBoxSelectedBorder = null;
             }
-
             isCanMove = false;
         }
         #endregion
         /// <summary>
-        /// 转换Canvas坐标
-        /// </summary>
-        /// <param value="坐标轴的刻度"></param>
-        /// <returns></returns>
-        private double TransFromX(double value)
-        {
-            return (double)((decimal)value / 10 * (decimal)CanvasInPath.Width / 10);
-        }
-        private double TransFromY(double value)
-        {
-            return (double)((decimal)value / 10 * (decimal)CanvasInPath.Height / 10);
-        }
-
-        /// <summary>
-        /// 获取小球的坐标轴刻度
-        /// </summary>
-        /// <param dot="小球对象"></param>
-        /// <returns></returns>
-        private double[] GetValueOfAxis(Ellipse dot)
-        {
-            double x1 = (double)((decimal)(Canvas.GetLeft(dot)/* + XOffset*/) / (decimal)(CanvasInPath.Width / 100));
-            double y1 = (double)((decimal)(Canvas.GetTop(dot)/* + YOffset*/) / (decimal)(CanvasInPath.Height / 100));
-            return new double[2] { x1, y1 };
-        }
-        /// <summary>
         /// 绘制坐标轴和刻度
         /// </summary>
-        private void DrawAxisAndText()
+        private void DrawPadMap(double xLength, double yLength)
         {
             //坐标线
-            Line lineX = new Line()
-            {
-                Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 1,
-            };
-            lineX.X1 = 0;
-            lineX.X2 = 0;
-            lineX.Y1 = 0;
-            lineX.Y2 = CanvasInPath.Height;
-            CanvasInPath.Children.Add(lineX);
-
             Line lineY = new Line()
             {
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1,
             };
             lineY.X1 = 0;
-            lineY.X2 = CanvasInPath.Width;
-            lineY.Y1 = (double)(decimal)CanvasInPath.Height;
-            lineY.Y2 = (double)(decimal)CanvasInPath.Height;
+            lineY.X2 = 0;
+            lineY.Y1 = 0;
+            lineY.Y2 = yLength;
             CanvasInPath.Children.Add(lineY);
-
+            Line lineX = new Line()
+            {
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1,
+            };
+            lineX.X1 = 0;
+            lineX.X2 = xLength;
+            lineX.Y1 = yLength;
+            lineX.Y2 = yLength;
+            CanvasInPath.Children.Add(lineX);
             //轴标Y
             TextBlock yAxisLabel = new TextBlock();
             yAxisLabel.Foreground = new SolidColorBrush(Colors.Black);
@@ -238,116 +198,133 @@ namespace test.View
             yAxisLabel.Text = "column";
             yAxisLabel.LayoutTransform = new RotateTransform()
             {
-                Angle = 90,
+                Angle = 270,
             };
             Canvas.SetLeft(yAxisLabel, -50);
-            Canvas.SetTop(yAxisLabel, TransFromY(yMaxValue * yInterview / 2));
+            Canvas.SetTop(yAxisLabel, yLength / 2);
             CanvasInPath.Children.Add(yAxisLabel);
             //轴标X
             TextBlock xAxisLabel = new TextBlock();
             xAxisLabel.Foreground = new SolidColorBrush(Colors.Black);
             xAxisLabel.FontSize = 12;
             xAxisLabel.Text = "row";
-            Canvas.SetLeft(xAxisLabel, TransFromX(xMaxValue * xInterview / 2));
-            Canvas.SetTop(xAxisLabel, CanvasInPath.Height + 20);
-
+            Canvas.SetLeft(xAxisLabel, xLength / 2);
+            Canvas.SetTop(xAxisLabel, yLength + 20);
             CanvasInPath.Children.Add(xAxisLabel);
+        }
+        private void DrawPadMapLabel(double startX, double startY, double xLength, double yLength)
+        {
+            double pixLine = 0;
             #region 刻度线
-            for (int i = 0; i < yInterview * yMaxValue; ++i)
+            for (int i = 0; pixLine <= yLength; ++i)
             {
-                if (i != 0)
+                TextBlock yblock = new TextBlock();
+                yblock.Foreground = new SolidColorBrush(Colors.Black);
+                yblock.FontSize = 10;
+                yblock.Text = i + startY + "";
+                Canvas.SetLeft(yblock, -20);
+                Canvas.SetTop(yblock, yLength - pixLine - 5);
+                CanvasInPath.Children.Add(yblock);
+                Line ly = new Line()
                 {
-                    TextBlock yblock = new TextBlock();
-                    yblock.Foreground = new SolidColorBrush(Colors.Black);
-                    yblock.FontSize = 10;
-                    yblock.Text = i + "";
-                    Canvas.SetLeft(yblock, -25);
-                    Canvas.SetTop(yblock, TransFromY(100 - i));
-                    CanvasInPath.Children.Add(yblock);
-                    if (i % yInterview == 0)
-                    {
-                        Line ly = new Line()
-                        {
-                            Stroke = new SolidColorBrush(Colors.Black),
-                            StrokeThickness = 1,
-                        };
-                        ly.X1 = 0;
-                        ly.X2 = LargePx;
-                        ly.Y1 = TransFromY(i);
-                        ly.Y2 = TransFromY(i);
-                        CanvasInPath.Children.Add(ly);
-                    }
-                    else
-                    {
-                        Line ly = new Line()
-                        {
-                            Stroke = new SolidColorBrush(Colors.Black),
-                            StrokeThickness = 1,
-                        };
-                        ly.X1 = 0;
-                        ly.X2 = ShortPx;
-                        ly.Y1 = TransFromY(i);
-                        ly.Y2 = TransFromY(i);
-                        CanvasInPath.Children.Add(ly);
-                    }
-                }
+                    Stroke = new SolidColorBrush(Colors.Black),
+                    StrokeThickness = 1,
+                };
+                ly.X1 = 0;
+                ly.X2 = i % 5 == 0 ? largePx : shortPx;
+                ly.Y1 = yLength - i * yInterval * scale;
+                ly.Y2 = yLength - i * yInterval * scale;
+                CanvasInPath.Children.Add(ly);
+                pixLine = (i + 1) * yInterval * scale;
             }
-            for (int i = 0; i < xMaxValue * xInterview; ++i)
+            pixLine = 0;
+            for (int i = 0; pixLine <= xLength; ++i)
             {
                 TextBlock xblock = new TextBlock();
                 xblock.Foreground = new SolidColorBrush(Colors.Black);
                 xblock.FontSize = 10;
-                xblock.Text = i + "";
-                Canvas.SetLeft(xblock, TransFromX(i));
-                Canvas.SetTop(xblock, CanvasInPath.Height);
+                xblock.Text = i + startX + "";
+                Canvas.SetLeft(xblock, pixLine - 5);
+                Canvas.SetTop(xblock, yLength + 5);
                 CanvasInPath.Children.Add(xblock);
-                if (i % xInterview == 0)
+                Line lx = new Line()
                 {
-                    Line lx = new Line()
-                    {
-                        Stroke = new SolidColorBrush(Colors.Black),
-                        StrokeThickness = 1,
-                    };
-                    lx.X1 = TransFromX(i);
-                    lx.X2 = TransFromX(i);
-                    lx.Y1 = CanvasInPath.Height;
-                    lx.Y2 = CanvasInPath.Height - LargePx;
-                    CanvasInPath.Children.Add(lx);
-                }
-                else
-                {
-                    Line lx = new Line()
-                    {
-                        Stroke = new SolidColorBrush(Colors.Black),
-                        StrokeThickness = 1,
-                    };
-                    lx.X1 = TransFromX(i);
-                    lx.X2 = TransFromX(i);
-                    lx.Y1 = CanvasInPath.Height;
-                    lx.Y2 = CanvasInPath.Height - ShortPx;
-                    CanvasInPath.Children.Add(lx);
-                }
+                    Stroke = new SolidColorBrush(Colors.Black),
+                    StrokeThickness = 1,
+                };
+                lx.X1 = i * xInterval * scale;
+                lx.X2 = i * xInterval * scale;
+                lx.Y1 = yLength;
+                lx.Y2 = i % 5 == 0 ? yLength - largePx : yLength - shortPx;
+                CanvasInPath.Children.Add(lx);
+                pixLine = (i + 1) * xInterval * scale;
             }
             #endregion
-
+        }
+        private void ScaleChanged(object sender, RoutedEventArgs e)
+        {
+            if (CanvasInPath != null)
+            {
+                CanvasInPath.Children.Clear();
+                xMaxValue = xLength * (int)ScaleSlider.Value;
+                yMaxValue = yLength * (int)ScaleSlider.Value;
+                scale = ScaleSlider.Value;
+                CanvasInPath.Width = xMaxValue;
+                CanvasInPath.Height = yMaxValue;
+                DrawPadMap(xMaxValue, yMaxValue);
+                DrawPadMapLabel(0, 0, xMaxValue, yMaxValue);
+                ExampleChanged(xMaxValue, yMaxValue);
+            }
         }
         //图例改变触发事件
-        private void ExampleChanged()
+        private void ExampleChanged(double xLength, double yLength)
         {
             #region Pad
-            for (int i = 1; i < xInterview * xMaxValue; ++i)
+            Point temp = new Point(0, 0);
+            for (int i = 0; temp.X <= xLength; ++i)
             {
-                for (int j = 1; j < yInterview * yMaxValue; ++j)
+                temp.Y = 0;
+                List<PadAndInfo> list = new List<PadAndInfo>();
+                for (int j = 0; temp.Y <= yLength; ++j)
                 {
-                    ExampleC exampleC = new ExampleC();
-                    Canvas.SetLeft(exampleC, TransFromX(i - 0.2));
-                    Canvas.SetTop(exampleC, TransFromY(100 - j - 0.25));
-                    CanvasInPath.Children.Add(exampleC);
+                    PadAndInfo padAndInfo = new PadAndInfo();
+                    PadInfo padInfo = new PadInfo();
+                    padInfo.GlassRow = i;
+                    padInfo.GlassColumn = j;
+                    padAndInfo.PadInfo = padInfo;
+                    padAndInfo.ExampleC = new ExampleC();
+                    padAndInfo.ExampleC.Height = 5;
+                    padAndInfo.ExampleC.Width = 5;
+                    padAndInfo.ExampleC.ToolTip = i.ToString() + "-" + j.ToString();
+                    Canvas.SetLeft(padAndInfo.ExampleC, temp.X - 2);
+                    Canvas.SetTop(padAndInfo.ExampleC, yLength - temp.Y - 2);
+                    CanvasInPath.Children.Add(padAndInfo.ExampleC);
+                    list.Add(padAndInfo);
+                    temp.Y = (j + 1) * yInterval * ScaleSlider.Value;
                 }
+                Base.GetInstance().MappingViewModel.PadAndInfoList.Add(list);
+                temp.X = (i + 1) * xInterval * ScaleSlider.Value;
             }
             #endregion
         }
-
+        private void DrawROI()
+        {
+            //CanvasInPath.Children.Clear();
+            //int num = rectSelectedPadAndInfos.Count;
+            //CanvasInPath.Width = num * xInterval;
+            //CanvasInPath.Height = num * yInterval;
+            //DrawPadMap(num * xInterval, num * yInterval);
+            //int x = GetPadPosition(rectSelectedPadAndInfos[num - 1].ExampleC, xInterval);
+            //int y = GetPadPosition(rectSelectedPadAndInfos[num - 1].ExampleC, xInterval);
+            //DrawPadMapLabel(x, y, num * xInterval, num * yInterval);
+            ////DrawPad();
+            //ExampleChanged(num * xInterval, num * yInterval);
+            //rectSelectedPadAndInfos.Clear();
+        }
+        private int GetPadPosition(ExampleC exampleC, double interval)
+        {
+            return (int)(Canvas.GetLeft(exampleC) / interval / scale);
+        }
         /// <summary>
         /// 绘制跟随鼠标移动的方框
         /// </summary>
@@ -374,7 +351,6 @@ namespace test.View
             else
                 Canvas.SetTop(currentBoxSelectedBorder, endPoint.Y);
         }
-
         /// <summary>
         /// 获得所有子控件
         /// </summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using test.Common;
+using test.Infomation;
 using test.View;
 
 namespace test.ViewModel
@@ -16,17 +17,18 @@ namespace test.ViewModel
         public MapChangeItem mcItem { get; set; }
         public bool ExampleIsChecked { get; set; } = false;
         public bool PathIsChecked { get; set; } = false;
-        public string PadInfo { get; set; } = "123";
         public List<MapChangeItem> MapChangeList { get; set; } = new List<MapChangeItem>()
         {
             new MapChangeItem(){ TypeName="Glass行列显示" },
             new MapChangeItem(){ TypeName="Wafer行列显示" }
         };
-
+        public List<List<PadAndInfo>> PadAndInfoList { get; set; }
+        public int Scale { get; set; }
         public MappingViewModel()
         {
             OptionWindowShowCommand = new DelegateCommand(OptionWindowShow);
-            SelectWindowShowCommand = new DelegateCommand(SelectWindowShow); 
+            SelectWindowShowCommand = new DelegateCommand(SelectWindowShow);
+            PadAndInfoList = new List<List<PadAndInfo>>();
         }
         public void OptionWindowShow(object obj)
         {

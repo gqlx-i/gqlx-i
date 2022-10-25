@@ -6,39 +6,6 @@
         xmlns:local="clr-namespace:test.View" 
         mc:Ignorable="d"
         Title="OptionsWindowView" Height="450" Width="800">
-    <Window.Resources>
-        <Style TargetType="RadioButton" x:Key="RadioButtonRec">
-            <Style.Setters>
-                <Setter Property="Tag">
-                    <Setter.Value>
-                        <SolidColorBrush Color="black"/>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="RadioButton">
-                            <StackPanel Orientation="Horizontal">
-                                <Border x:Name="bd" BorderBrush="black" BorderThickness="2" Margin="5,2">
-                                    <Rectangle Width="10" Height="10" Fill="White"/>
-                                </Border>
-                                <ContentPresenter/>
-                            </StackPanel>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsChecked" Value="True">
-                                    <Setter Property="BorderBrush" TargetName="bd">
-                                        <Setter.Value>
-                                            <SolidColorBrush Color="black" Opacity="0.5"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style.Setters>
-        </Style>
-    </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -56,31 +23,28 @@
 
             <TextBlock Text="色调" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <RadioButton Content="Non" Name="nonRecordedDataBtn" GroupName="non" Click="NonRecordedDataBtn_Click" Command="{Binding NonButton}" IsChecked="True" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="时间"  Name="timeRecordedDataBtn" GroupName="time" Click="TimeRecordedDataBtn_Click" Command="{Binding TimeButton}" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX11" Name="pex11RecordedDataBtn" Click="Pex11RecordedDataBtn_Click" GroupName="pex11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY11" Name="pey11RecordedDataBtn" Click="Pey11RecordedDataBtn_Click" GroupName="pey11" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX21" Name="pex21RecordedDataBtn" Click="Pex21RecordedDataBtn_Click" GroupName="pex21" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY21" Name="pey21RecordedDataBtn" Click="Pey21RecordedDataBtn_Click" GroupName="pey21" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="OffsetX" Name="offsetXRecordedDataBtn" Click="OffsetXRecordedDataBtn_Click" GroupName="offsetX" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="OffsetY" Name="offsetYRecordedDataBtn" Click="OffsetYRecordedDataBtn_Click" GroupName="offsetY" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="Non" IsChecked="True" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="时间" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEX11" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEY11" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEX21" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEY21" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="OffsetX" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="OffsetY" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <RadioButton Content="PEX12" Name="pex12RecordedDataBtn" Click="Pex12RecordedDataBtn_Click" GroupName="pex12" VerticalAlignment="Center" Margin="105,4,4,4"/>
-                <RadioButton Content="PEY12" Name="pey12RecordedDataBtn" Click="Pey12RecordedDataBtn_Click" GroupName="pey12" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEX22" Name="pex22RecordedDataBtn" Click="Pex22RecordedDataBtn_Click" GroupName="pex22" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="PEY22" Name="pey22RecordedDataBtn" Click="Pey22RecordedDataBtn_Click" GroupName="pey22" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="PEX12" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEY12" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEX22" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="PEY22" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <RadioButton Content="MoveX1" Name="moveX1RecordedDataBtn" Click="MoveX1RecordedDataBtn_Click" GroupName="moveX1" VerticalAlignment="Center" Margin="105,4,4,4"/>
-                <RadioButton Content="MoveY1" Name="moveY1RecordedDataBtn" Click="MoveY1RecordedDataBtn_Click" GroupName="moveY1" VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveX2" Name="moveX2RecordedDataBtn" Click="MoveX2RecordedDataBtn_Click" GroupName="moveX2"  VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="MoveY2" Name="moveY2RecordedDataBtn" Click="MoveY2RecordedDataBtn_Click" GroupName="moveY2"  VerticalAlignment="Center" Margin="4"/>
-                <RadioButton Content="InposeTime" Name="inposeTimeRecordedDataBtn" Click="InposeTimeRecordedDataBtn_Click" GroupName="inposeTime" VerticalAlignment="Center" Margin="4"/>
-                
+                <CheckBox Content="MoveX1" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="MoveX2" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="MoveY2" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="InposeTime" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
-
-
         </Grid>
 
         <Grid Margin="8,3" Grid.Row="1">

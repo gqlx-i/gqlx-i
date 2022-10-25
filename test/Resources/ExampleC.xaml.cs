@@ -27,15 +27,32 @@ namespace test.Resources
         }
         private void ExampleC_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Point pp = Mouse.GetPosition(e.Source as Canvas);//WPF方法
+            Point ppp = (e.Source as FrameworkElement).PointToScreen(pp);//WPF方法
+
+
+            {
+                MessageBox.Show(string.Format(" GetPosition {0},{1}\r\n {2},{3}", pp.X, pp.Y, ppp.X, ppp.Y));
+            }
             Base bs = Base.GetInstance();
-            bs.InfoCompareViewModel.AddPadInfo(new PadInfo());
+            //获取鼠标位置
+            bs.InfoCompareViewModel.PadInfoList.Add(new PadInfo());
             if (!bs.InfoCompareWindowIsOpen)
             {
                 InfoCompareView infoCompare = new InfoCompareView();
                 infoCompare.Show();
                 bs.InfoCompareWindowIsOpen = true;
-                infoCompare.Closed += (s, e) => bs.InfoCompareWindowIsOpen = false;
+                infoCompare.Closed += (s, e) =>
+                {
+                    bs.InfoCompareWindowIsOpen = false;
+                    bs.InfoCompareViewModel.PadInfoList.Clear();
+                };
             }
+        }
+        private void button2_Click(object sender, RoutedEventArgs e)//获取位置
+        {
+
+            
         }
     }
 }

@@ -28,10 +28,10 @@
                     <Button Content="Mark" Grid.Column="1" Width="80" Height="30" HorizontalAlignment="Right" Margin="6,1"/>
                 </Grid>
                 <Border Grid.Row="1" Margin="3" Background="White">
-                    
+                    <Canvas x:Name="XCanvas" Background="Aquamarine" Width="250" Height="300" MouseLeftButtonDown="XCanvasClick"/>
                 </Border>
                 <Border Grid.Row="2" Margin="3" Background="White">
-
+                    <Canvas x:Name="YCanvas" Background="Aqua" Width="250" Height="300" MouseLeftButtonDown="YCanvasClick"/>
                 </Border>
             </Grid>
         </Border>
@@ -42,7 +42,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0">
-                    
+                    <Canvas x:Name="ScatterPointCanvas" Background="LightCoral" Cursor="Arrow" Width="600" Height="600" MouseLeftButtonDown="ScatterPlotCanvasClick"/>
                 </Border>
                 <Border Grid.Row="1" Background="#FFF0F0F0">
                     <Grid>
@@ -113,9 +113,9 @@
                             <Label Content="Spec Rank:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                             <Label Content="Up Limit:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                             <Label Content="Low Limit:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="0" Text="{Binding MidLine}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="1" Text="{Binding UpLimit}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="2" Text="{Binding LowLimit}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Cpk X" Grid.Row="1" Margin="1,6">
