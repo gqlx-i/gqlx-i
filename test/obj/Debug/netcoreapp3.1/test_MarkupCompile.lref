@@ -1,10 +1,16 @@
 ﻿
 
 FD:\lcc\gqlx-i\test\MainWindow.xaml;;
+FD:\lcc\gqlx-i\test\RadioButtonUncheck.xaml;;
 FD:\lcc\gqlx-i\test\Resources\ExampleC.xaml;;
+FD:\lcc\gqlx-i\test\Resources\PlotLine.xaml;;
+FD:\lcc\gqlx-i\test\Resources\Rectangles.xaml;;
+FD:\lcc\gqlx-i\test\Resources\ScrollViewerUserControl.xaml;;
+FD:\lcc\gqlx-i\test\View\CorrelationView.xaml;;
+FD:\lcc\gqlx-i\test\View\GraphWindowView.xaml;;
+FD:\lcc\gqlx-i\test\View\InfoCompareView.xaml;;
 FD:\lcc\gqlx-i\test\View\MappingView.xaml;;
 FD:\lcc\gqlx-i\test\View\OptionsWindowView.xaml;;
-FD:\lcc\gqlx-i\test\View\SelectWindowView.xaml;;
 FD:\lcc\gqlx-i\test\View\ScatterPlotWindowView.xaml;;
-FD:\lcc\gqlx-i\test\RadioButtonUncheck.xaml;;
+FD:\lcc\gqlx-i\test\View\SelectWindowView.xaml;;
 

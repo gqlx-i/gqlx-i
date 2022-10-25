@@ -14,6 +14,7 @@ namespace test
         public CorrelationViewModel CorrelationViewModel { get; set; }
         public OptionsWindowViewModel OptionsWindowViewModel { get; set; }
         public MappingViewModel MappingViewModel { get; set; }
+        public GraphWindowViewModel GraphWindowViewModel { get; set; }
 
         // 定义私有构造函数，使外界不能创建该类实例
         private Base()
@@ -22,6 +23,7 @@ namespace test
             CorrelationViewModel = new CorrelationViewModel();
             OptionsWindowViewModel = new OptionsWindowViewModel();
             MappingViewModel = new MappingViewModel();
+            GraphWindowViewModel = new GraphWindowViewModel();
         }
         public static Base GetInstance()
         {

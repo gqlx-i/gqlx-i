@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:test.View"
              xmlns:con="clr-namespace:test.Common"
+             xmlns:loc="clr-namespace:test.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1600"        
              KeyDown="Window_Keydown"
@@ -17,6 +18,35 @@
             <Style x:Key="sliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="Background" Value="CornflowerBlue"/>
             </Style>
+            <!--上行下行按钮-->
+            <!--<ControlTemplate x:Key="VerticalScrollBarTemplate" TargetType="{x:Type ScrollBar}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <RepeatButton Command="{Binding UpCommand}"/>
+                    <RepeatButton  Grid.Row="2" Command="{Binding DownCommand}"/>
+                </Grid>
+            </ControlTemplate>-->
+
+            <ControlTemplate x:Key="HorizontalScrollBarTemplate" TargetType="{x:Type ScrollBar}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="40"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition MaxWidth="40"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <RepeatButton Command="ScrollBar.LineLeftCommand" Click="HorizontalScrollBarRepeatButon_Click" Width="17" Height="17">
+                        <Image Source="D:\lcc\gqlx-i\test\Picture\左行按钮.png"/>
+                    </RepeatButton>
+                    <RepeatButton Grid.Column="2" Command="ScrollBar.LineRightCommand" Width="17" Height="17" HorizontalAlignment="Right">
+                        <Image Source="D:\lcc\gqlx-i\test\Picture\右行按钮.png"/>
+                    </RepeatButton>
+                </Grid>
+            </ControlTemplate>
 
             <ControlTemplate x:Key="ScrollViewTemplate" TargetType="{x:Type ScrollViewer}">
                 <Grid x:Name="ScrollViewGrid" Background="{TemplateBinding Background}">
@@ -34,8 +64,8 @@
                     <ScrollContentPresenter x:Name="scrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" 
                                             ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Grid.Row="0" Margin="{TemplateBinding Padding}"/>
                     <ScrollBar x:Name="verScrollBar" Grid.Row="0" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" ViewportSize="{TemplateBinding ViewportHeight}" 
-                               Minimum="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Height="719" Margin="1,0,1,0" VerticalAlignment="Top" />
-                    <ScrollBar x:Name="horScrollBar" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                               Minimum="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Height="690" Margin="1,0,1,0" VerticalAlignment="Top" />
+                    <ScrollBar x:Name="horScrollBar"  Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
                                Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" 
                                ViewportSize="{TemplateBinding ViewportWidth}"/>
                 </Grid>
@@ -187,7 +217,7 @@
             <Border Grid.Row="0" Grid.Column="2" Height="28" Background="LightGray">
                 <Slider Grid.Row="0" Grid.Column="2"  IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10" Maximum="100" Minimum="0" VerticalAlignment="Center"/>
             </Border>
-            <ComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding MapChangeList}" SelectedItem="{Binding mcItem}" DisplayMemberPath="TypeName"  Width="160" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding TypeNameList}" SelectedItem="{Binding SelectedTypeName}" Width="160" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
             <CheckBox Content="显示路径" IsChecked="{Binding PathIsChecked}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Button Content="选项" Command="{Binding OptionWindowShowCommand}" Grid.Row="0" Grid.Column="5" Width="85" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,8,2"/>
             <Button Content="筛选" Command="{Binding SelectWindowShowCommand}" Grid.Row="1" Grid.Column="5" Width="85" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,8,2"/>
@@ -211,8 +241,8 @@
                 </TextBlock.LayoutTransform>
             </TextBlock>
             <TextBlock Text="Row" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
-            <ScrollViewer x:Name="scrollView" Template="{StaticResource ScrollViewTemplate}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <Canvas x:Name="CanvasInPath" Visibility="Hidden" Background="LightGray" Cursor="Arrow" Width="1500" Height="800" Margin="50" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
+            <ScrollViewer x:Name="scrollView" Template="{StaticResource ScrollViewTemplate}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,1,35,0">
+                <Canvas x:Name="CanvasInPath" Background="LightGray" Cursor="Arrow" Width="1500" Height="800" Margin="50" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
 
                 </Canvas>
             </ScrollViewer>

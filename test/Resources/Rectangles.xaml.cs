@@ -8,20 +8,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using test.ViewModel;
 
-namespace test.View
+namespace test.Resources
 {
     /// <summary>
-    /// ScatterPlotWindowView.xaml 的交互逻辑
+    /// Rectangles.xaml 的交互逻辑
     /// </summary>
-    public partial class ScatterPlotWindowView : Window
+    public partial class Rectangles : UserControl
     {
-        public ScatterPlotWindowView()
+        public Rectangles()
         {
             InitializeComponent();
-            this.DataContext = new ScatterPlotWindowViewModel();
         }
     }
 }

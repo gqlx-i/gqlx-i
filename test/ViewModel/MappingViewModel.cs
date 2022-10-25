@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using test.Common;
@@ -7,27 +8,60 @@ using test.View;
 
 namespace test.ViewModel
 {
-    public class MappingViewModel
+    public class MappingViewModel : INotifyPropertyChanged
     {
         public ICommand OptionWindowShowCommand { get; set; }
         public ICommand SelectWindowShowCommand { get; set; }
         public OptionsWindowView OptionsWindowView { get; set; }
         public SelectWindowView SelectWindowView { get; set; }
-        public MapChangeItem mcItem { get; set; }
         public bool ExampleIsChecked { get; set; } = false;
         public bool PathIsChecked { get; set; } = false;
         public string PadInfo { get; set; } = "123";
-        public List<MapChangeItem> MapChangeList { get; set; } = new List<MapChangeItem>()
-        {
-            new MapChangeItem(){ TypeName="Glass行列显示" },
-            new MapChangeItem(){ TypeName="Wafer行列显示" }
-        };
+
+        private List<string> _typeNameList;
+        private string _selectedTypeName;       
 
         public MappingViewModel()
         {
             OptionWindowShowCommand = new DelegateCommand(OptionWindowShow);
-            SelectWindowShowCommand = new DelegateCommand(SelectWindowShow); 
+            SelectWindowShowCommand = new DelegateCommand(SelectWindowShow);
+
+            _typeNameList = new List<string>() { "Glass行列显示", "Wafer行列显示" };
+            _selectedTypeName = "Glass行列显示";
         }
+
+        public List<string> TypeNameList
+        {
+            get
+            {
+                return _typeNameList;
+            }
+            set
+            {
+                value = _typeNameList;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("TypeNameList"));
+                }
+            }
+        }
+
+        public string SelectedTypeName
+        {
+            get
+            {
+                return _selectedTypeName;
+            }
+            set
+            {
+                _selectedTypeName = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SelectedTypeName"));
+                }
+            }
+        }
+
         public void OptionWindowShow(object obj)
         {
             OptionsWindowView = new OptionsWindowView();
@@ -38,10 +72,15 @@ namespace test.ViewModel
             SelectWindowView = new SelectWindowView();
             SelectWindowView.Show();
         }
-    }
 
-    public class MapChangeItem
-    {
-        public string TypeName { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
+    
 }

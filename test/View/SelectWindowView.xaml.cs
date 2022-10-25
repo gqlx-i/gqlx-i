@@ -24,10 +24,18 @@ namespace test.View
             this.DataContext = new SelectWindowViewModel();
         }
 
+        //散点图
         public void ScatterPlot_Click(object sender, RoutedEventArgs e)
         {
             ScatterPlotWindowView scatterPlotWindow = new ScatterPlotWindowView();
-            scatterPlotWindow.ShowDialog();
+            scatterPlotWindow.Show();
+        }
+
+        //曲线图
+        public void Graph_Click(object sender, RoutedEventArgs e)
+        {
+            GraphWindowView graphWindow = new GraphWindowView();
+            graphWindow.Show();
         }
 
         public void CloseWindow_Click(object sender,RoutedEventArgs e)

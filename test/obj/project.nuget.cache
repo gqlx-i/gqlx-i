@@ -1,8 +1,32 @@
 {
   "version": 2,
-  "dgSpecHash": "s6KtDTZjL2QtiNODMcsMVcBAKINMj4iLDE0lsc6joaCPoVZGPKVdAzflfpksCsfcsxODzjJpigAGw7bnPkIZlg==",
+  "dgSpecHash": "Zq+Nt2NyzWzTQAkyRMm5ZgoX1Z0pIfuMF0h18Pb2MLEx22yAgWfPZrGoCLTnZtjWYc4nObIOCTNVukh+hD1Y5w==",
   "success": true,
-  "projectFilePath": "D:\\chp\\gitProject\\test\\test\\test.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "D:\\lcc\\gqlx-i\\test\\test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Maxwell\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\Maxwell\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8”而不是项目目标框架“.NETCoreApp,Version=v3.1”还原包“LiveCharts 0.9.7”。此包可能与项目不完全兼容。",
+      "libraryId": "LiveCharts",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8”而不是项目目标框架“.NETCoreApp,Version=v3.1”还原包“LiveCharts.Wpf 0.9.7”。此包可能与项目不完全兼容。",
+      "libraryId": "LiveCharts.Wpf",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

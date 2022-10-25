@@ -61,7 +61,7 @@ namespace test.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/test;V1.0.0.0;component/view/correlationview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/test;component/view/correlationview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\CorrelationView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
