@@ -49,10 +49,6 @@ namespace test.View
             DrawPadMapLabel(0, 0, xLength, yLength);
             ExampleChanged(xLength, yLength);
         }
-        {
-            scrollView.PageLeft();
-            scrollView.ScrollToLeftEnd();
-        }
 
         public void Restore_Click(object sender,RoutedEventArgs e)
         {
@@ -62,21 +58,21 @@ namespace test.View
             scrollView.PageLeft();
         }
 
-        //public static void ScrollViewToVerticalTop(FrameworkElement element,ScrollViewer scrollViewer)
-        //{
-        //    var scrollViewOffset = scrollViewer.VerticalOffset;
-        //    var point = new Point(0, scrollViewOffset);
-        //    var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
-        //    scrollViewer.ScrollToVerticalOffset(tarPos.Y);
-        //}
+        public static void ScrollViewToVerticalTop(FrameworkElement element,ScrollViewer scrollViewer)
+        {
+            var scrollViewOffset = scrollViewer.VerticalOffset;
+            var point = new Point(0, scrollViewOffset);
+            var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
+            scrollViewer.ScrollToVerticalOffset(tarPos.Y);
+        }
 
-        //public static void ScrollViewToHorizontalRight(FrameworkElement element, ScrollViewer scrollViewer)
-        //{
-        //    var scrollViewOffset = scrollViewer.HorizontalOffset;
-        //    var point = new Point(scrollViewOffset, 0);
-        //    var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
-        //    scrollViewer.ScrollToVerticalOffset(tarPos.X);
-        //}
+        public static void ScrollViewToHorizontalRight(FrameworkElement element, ScrollViewer scrollViewer)
+        {
+            var scrollViewOffset = scrollViewer.HorizontalOffset;
+            var point = new Point(scrollViewOffset, 0);
+            var tarPos = element.TransformToVisual(scrollViewer).Transform(point);
+            scrollViewer.ScrollToVerticalOffset(tarPos.X);
+        }
 
         #region 键盘事件监听
         // Shift按下

@@ -11,16 +11,25 @@ namespace test.ViewModel
 {
     public class MappingViewModel : INotifyPropertyChanged
     {
+        private List<string> _typeNameList;
+        private string _selectedTypeName;
+        private bool _exampleIsChecked;
+        private bool _pathIsChecked;
+        public bool ExampleIsChecked
+        {
+            get { return _exampleIsChecked; }
+            set { _exampleIsChecked = value; this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("ExampleIsChecked")); }
+        }
+        public bool PathIsChecked
+        {
+            get { return _pathIsChecked; }
+            set { _pathIsChecked = value; this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("PathIsChecked")); }
+        }
+        public List<List<PadAndInfo>> PadAndInfoList { get; set; }
         public ICommand OptionWindowShowCommand { get; set; }
         public ICommand SelectWindowShowCommand { get; set; }
         public OptionsWindowView OptionsWindowView { get; set; }
         public SelectWindowView SelectWindowView { get; set; }
-        public bool ExampleIsChecked { get; set; } = false;
-        public bool PathIsChecked { get; set; } = false;
-
-        private List<string> _typeNameList;
-        private string _selectedTypeName;       
-        public List<List<PadAndInfo>> PadAndInfoList { get; set; }
         public int Scale { get; set; }
         public MappingViewModel()
         {
@@ -29,6 +38,8 @@ namespace test.ViewModel
             PadAndInfoList = new List<List<PadAndInfo>>();
             _typeNameList = new List<string>() { "Glass行列显示", "Wafer行列显示" };
             _selectedTypeName = "Glass行列显示";
+            _exampleIsChecked = false;
+            _pathIsChecked = false;
         }
 
         public List<string> TypeNameList
