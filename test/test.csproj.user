@@ -13,7 +13,19 @@
     <Compile Update="Resources\ExampleC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Resources\PlotLine.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Resources\Rectangles.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Resources\ScrollViewerUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CorrelationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\GraphWindowView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\InfoCompareView.xaml.cs">
@@ -42,7 +54,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\PlotLine.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Rectangles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\ScrollViewerUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CorrelationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\GraphWindowView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\InfoCompareView.xaml">

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\chp\gitProject\test\test\obj\Debug\netcoreapp3.1\
+D:\lcc\gqlx-i\test\obj\Debug\netcoreapp3.1\
 test
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-D:\chp\gitProject\test\test\App.xaml
-9-1232466818
+D:\lcc\gqlx-i\test\App.xaml
+131938261018
 
-22-825621282
-192-1533232326
-MainWindow.xaml;RadioButtonUncheck.xaml;Resources\ExampleC.xaml;View\CorrelationView.xaml;View\InfoCompareView.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\ScatterPlotWindowView.xaml;View\SelectWindowView.xaml;
+28419397283
+1942057566275
+MainWindow.xaml;RadioButtonUncheck.xaml;Resources\ExampleC.xaml;Resources\PlotLine.xaml;Resources\Rectangles.xaml;Resources\ScrollViewerUserControl.xaml;View\CorrelationView.xaml;View\GraphWindowView.xaml;View\InfoCompareView.xaml;View\MappingView.xaml;View\OptionsWindowView.xaml;View\ScatterPlotWindowView.xaml;View\SelectWindowView.xaml;
 
 False
 

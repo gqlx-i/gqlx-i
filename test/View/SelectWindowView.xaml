@@ -42,7 +42,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Content="散点图" Click="ScatterPlot_Click" Grid.Row="0" Grid.Column="0" Height="30" Width="100"/>
-                <Button Content="曲线图" Grid.Row="0" Grid.Column="1" Height="30" Width="100"/>
+                <Button Content="曲线图" Click="Graph_Click" Grid.Row="0" Grid.Column="1" Height="30" Width="100"/>
                 <Button Content="Apply" Grid.Row="1" Grid.Column="0" Height="30" Width="100"/>
                 <Button Content="Close" Click="CloseWindow_Click" Grid.Row="1" Grid.Column="1" Height="30" Width="100"/>
             </Grid>

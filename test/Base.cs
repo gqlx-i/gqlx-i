@@ -23,7 +23,7 @@ namespace test
             CorrelationViewModel = new CorrelationViewModel();
             OptionsWindowViewModel = new OptionsWindowViewModel();
             MappingViewModel = new MappingViewModel();
-            ScatterPlotWindowViewModel = new ScatterPlotWindowViewModel();
+            GraphWindowViewModel = new GraphWindowViewModel();
         }
         public static Base GetInstance()
         {

@@ -113,9 +113,15 @@
                             <Label Content="Spec Rank:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                             <Label Content="Up Limit:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                             <Label Content="Low Limit:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+<<<<<<< HEAD
                             <TextBox Grid.Row="0" Text="{Binding MidLine}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBox Grid.Row="1" Text="{Binding UpLimit}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBox Grid.Row="2" Text="{Binding LowLimit}" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+=======
+                            <TextBox Grid.Row="0" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Width="110" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+>>>>>>> test/lcc
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Cpk X" Grid.Row="1" Margin="1,6">
