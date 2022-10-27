@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace test.Resources
 {
     /// <summary>
-    /// Rectangles.xaml 的交互逻辑
+    /// MyRectangle.xaml 的交互逻辑
     /// </summary>
-    public partial class Rectangles : UserControl
+    public partial class MyRectangle : UserControl
     {
-        public Rectangles()
+        public MyRectangle()
         {
             InitializeComponent();
         }

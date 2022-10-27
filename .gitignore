@@ -53,6 +53,7 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+*.orig
 /packages
 /.vs/test/v16/.suo
 /.vs/test/DesignTimeBuild/.dtbcache.v2

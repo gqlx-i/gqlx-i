@@ -47,7 +47,8 @@ namespace test.Infomation
     }
     public class PadAndInfo
     {
-        public ExampleC ExampleC { get; set; }
+        public MyCircle MyCircle { get; set; }
+        public MyRectangle MyRectangle { get; set; }
         public PadInfo PadInfo { get; set; }
     }
 }

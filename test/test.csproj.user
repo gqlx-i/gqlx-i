@@ -10,13 +10,13 @@
     <Compile Update="RadioButtonUncheck.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Resources\ExampleC.xaml.cs">
+    <Compile Update="Resources\MyCircle.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Resources\PlotLine.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Resources\Rectangles.xaml.cs">
+    <Compile Update="Resources\MyRectangle.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Resources\ScrollViewerUserControl.xaml.cs">
@@ -48,7 +48,7 @@
     <Page Update="RadioButtonUncheck.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\ExampleC.xaml">
+    <Page Update="Resources\MyCircle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -57,7 +57,7 @@
     <Page Update="Resources\PlotLine.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\Rectangles.xaml">
+    <Page Update="Resources\MyRectangle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\ScrollViewerUserControl.xaml">

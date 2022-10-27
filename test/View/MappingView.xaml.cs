@@ -31,7 +31,7 @@ namespace test.View
         private int yLength = 10;
         private int yInterval = 10;
         private int xLength = 10;
-        private int xInterval = 10;
+        private int xInterval = 20;
         private int xMaxValue = 0;
         private int yMaxValue = 0;
         private int largePx = 10;
@@ -138,7 +138,7 @@ namespace test.View
                 Point tempEndPoint = e.GetPosition(this.CanvasInPath);
                 Rect tempRect = new Rect(tempStartPoint, tempEndPoint);
                 //获取子控件
-                List<ExampleC> childList = GetChildObjects<ExampleC>(this.CanvasInPath);
+                List<MyCircle> childList = GetChildObjects<MyCircle>(this.CanvasInPath);
                 foreach (var child in childList)
                 {
                     //获取子控件矩形位置
@@ -147,7 +147,7 @@ namespace test.View
                     //若子控件与选框相交则改变样式
                     if (childRect.IntersectsWith(tempRect))
                     {
-                        padAndInfo.ExampleC = child;
+                        padAndInfo.MyCircle = child;
                         padAndInfo.PadInfo = new PadInfo();
                         padAndInfo.PadInfo.GlassColumn = GetPadPosition(child, xInterval);
                         padAndInfo.PadInfo.GlassRow = GetPadPosition(child, yInterval);
@@ -281,25 +281,42 @@ namespace test.View
         {
             #region Pad
             Point temp = new Point(0, 0);
+            Base.GetInstance().MappingViewModel.PadAndInfoList.Clear();
             for (int i = 0; temp.X <= xLength; ++i)
             {
                 temp.Y = 0;
                 List<PadAndInfo> list = new List<PadAndInfo>();
                 for (int j = 0; temp.Y <= yLength; ++j)
-                {
-                    PadAndInfo padAndInfo = new PadAndInfo();
-                    PadInfo padInfo = new PadInfo();
-                    padInfo.GlassRow = i;
-                    padInfo.GlassColumn = j;
-                    padAndInfo.PadInfo = padInfo;
-                    padAndInfo.ExampleC = new ExampleC();
-                    padAndInfo.ExampleC.Height = 5;
-                    padAndInfo.ExampleC.Width = 5;
-                    padAndInfo.ExampleC.ToolTip = i.ToString() + "-" + j.ToString();
-                    Canvas.SetLeft(padAndInfo.ExampleC, temp.X - 2);
-                    Canvas.SetTop(padAndInfo.ExampleC, yLength - temp.Y - 2);
-                    CanvasInPath.Children.Add(padAndInfo.ExampleC);
-                    list.Add(padAndInfo);
+                {                  
+                    if (i!= 0 && j != 0)
+                    {
+                        PadAndInfo padAndInfo = new PadAndInfo();
+                        PadInfo padInfo = new PadInfo();
+                        padInfo.GlassRow = i;
+                        padInfo.GlassColumn = j;
+                        padAndInfo.PadInfo = padInfo;
+                        if (Base.GetInstance().MappingViewModel.ExampleIsChecked)
+                        {
+                            padAndInfo.MyRectangle = new MyRectangle();
+                            padAndInfo.MyRectangle.ToolTip = i.ToString() + "-" + j.ToString();
+                            if (Base.GetInstance().MappingViewModel.PathIsChecked)
+                            {
+                                padAndInfo.MyRectangle.Background = new SolidColorBrush(Colors.Red);
+                            }
+                            Canvas.SetLeft(padAndInfo.MyRectangle, temp.X - 5);
+                            Canvas.SetTop(padAndInfo.MyRectangle, yLength - temp.Y - 5);
+                            CanvasInPath.Children.Add(padAndInfo.MyRectangle);
+                        }
+                        else
+                        {
+                            padAndInfo.MyCircle = new MyCircle();
+                            padAndInfo.MyCircle.ToolTip = i.ToString() + "-" + j.ToString();
+                            Canvas.SetLeft(padAndInfo.MyCircle, temp.X - 5);
+                            Canvas.SetTop(padAndInfo.MyCircle, yLength - temp.Y - 5);
+                            CanvasInPath.Children.Add(padAndInfo.MyCircle);
+                        }
+                        list.Add(padAndInfo);
+                    }
                     temp.Y = (j + 1) * yInterval * ScaleSlider.Value;
                 }
                 Base.GetInstance().MappingViewModel.PadAndInfoList.Add(list);
@@ -314,14 +331,14 @@ namespace test.View
             //CanvasInPath.Width = num * xInterval;
             //CanvasInPath.Height = num * yInterval;
             //DrawPadMap(num * xInterval, num * yInterval);
-            //int x = GetPadPosition(rectSelectedPadAndInfos[num - 1].ExampleC, xInterval);
-            //int y = GetPadPosition(rectSelectedPadAndInfos[num - 1].ExampleC, xInterval);
+            //int x = GetPadPosition(rectSelectedPadAndInfos[num - 1].MyCircle, xInterval);
+            //int y = GetPadPosition(rectSelectedPadAndInfos[num - 1].MyCircle, xInterval);
             //DrawPadMapLabel(x, y, num * xInterval, num * yInterval);
             ////DrawPad();
             //ExampleChanged(num * xInterval, num * yInterval);
             //rectSelectedPadAndInfos.Clear();
         }
-        private int GetPadPosition(ExampleC exampleC, double interval)
+        private int GetPadPosition(MyCircle exampleC, double interval)
         {
             return (int)(Canvas.GetLeft(exampleC) / interval / scale);
         }
@@ -333,7 +350,7 @@ namespace test.View
             if (currentBoxSelectedBorder == null)
             {
                 currentBoxSelectedBorder = new Border();
-                currentBoxSelectedBorder.Background = new SolidColorBrush(Colors.Orange);
+                currentBoxSelectedBorder.Background = new SolidColorBrush(Colors.Blue);
                 currentBoxSelectedBorder.Opacity = 0.4;
                 currentBoxSelectedBorder.BorderThickness = new Thickness(2);
                 currentBoxSelectedBorder.BorderBrush = new SolidColorBrush(Colors.LightBlue);

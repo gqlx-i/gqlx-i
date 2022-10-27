@@ -15,6 +15,7 @@ namespace test.ViewModel
         private string _selectedTypeName;
         private bool _exampleIsChecked;
         private bool _pathIsChecked;
+        private double _scale;
         public bool ExampleIsChecked
         {
             get { return _exampleIsChecked; }
@@ -25,12 +26,16 @@ namespace test.ViewModel
             get { return _pathIsChecked; }
             set { _pathIsChecked = value; this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("PathIsChecked")); }
         }
+        public double Scale
+        {
+            get { return _scale; }
+            set { _scale = value; this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Scale")); }
+        }
         public List<List<PadAndInfo>> PadAndInfoList { get; set; }
         public ICommand OptionWindowShowCommand { get; set; }
         public ICommand SelectWindowShowCommand { get; set; }
         public OptionsWindowView OptionsWindowView { get; set; }
         public SelectWindowView SelectWindowView { get; set; }
-        public int Scale { get; set; }
         public MappingViewModel()
         {
             OptionWindowShowCommand = new DelegateCommand(OptionWindowShow);
@@ -40,8 +45,8 @@ namespace test.ViewModel
             _selectedTypeName = "Glass行列显示";
             _exampleIsChecked = false;
             _pathIsChecked = false;
+            _scale = 1;
         }
-
         public List<string> TypeNameList
         {
             get
@@ -57,7 +62,6 @@ namespace test.ViewModel
                 }
             }
         }
-
         public string SelectedTypeName
         {
             get
@@ -73,9 +77,8 @@ namespace test.ViewModel
                 }
             }
         }
-
         public void OptionWindowShow(object obj)
-        {
+        {                              
             OptionsWindowView = new OptionsWindowView();
             OptionsWindowView.Show();
         }

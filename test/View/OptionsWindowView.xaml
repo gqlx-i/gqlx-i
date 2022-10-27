@@ -23,27 +23,27 @@
 
             <TextBlock Text="色调" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <CheckBox Content="Non" IsChecked="True" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="时间" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEX11" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEY11" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEX21" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEY21" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="OffsetX" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="OffsetY" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[0].Name}" IsChecked="{Binding Hue[0].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[1].Name}" IsChecked="{Binding Hue[1].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[2].Name}" IsChecked="{Binding Hue[2].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[3].Name}" IsChecked="{Binding Hue[3].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[4].Name}" IsChecked="{Binding Hue[4].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[5].Name}" IsChecked="{Binding Hue[5].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[6].Name}" IsChecked="{Binding Hue[6].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[7].Name}" IsChecked="{Binding Hue[7].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <CheckBox Content="PEX12" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEY12" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEX22" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="PEY22" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[8].Name}" IsChecked="{Binding Hue[8].IsChecked}" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[9].Name}" IsChecked="{Binding Hue[9].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[10].Name}" IsChecked="{Binding Hue[10].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[11].Name}" IsChecked="{Binding Hue[11].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <CheckBox Content="MoveX1" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="MoveX2" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="MoveY2" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
-                <CheckBox Content="InposeTime" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[12].Name}" IsChecked="{Binding Hue[12].IsChecked}" VerticalAlignment="Center" Margin="105,4,4,4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[13].Name}" IsChecked="{Binding Hue[13].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[14].Name}" IsChecked="{Binding Hue[14].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[15].Name}" IsChecked="{Binding Hue[15].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
+                <CheckBox Content="{Binding Hue[16].Name}" IsChecked="{Binding Hue[16].IsChecked}" VerticalAlignment="Center" Margin="4" Style="{StaticResource CircleCheckBox}"/>
             </StackPanel>
         </Grid>
 
@@ -58,26 +58,26 @@
 
             <TextBlock Text="折线" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <CheckBox Content="PEX11" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEY11" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEX21" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEY21" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[0].Name}" IsChecked="{Binding Polyline[0].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[1].Name}" IsChecked="{Binding Polyline[1].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[2].Name}" IsChecked="{Binding Polyline[2].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[3].Name}" IsChecked="{Binding Polyline[3].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <CheckBox Content="PEX12" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEY12" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEX22" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PEY22" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[4].Name}" IsChecked="{Binding Polyline[4].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[5].Name}" IsChecked="{Binding Polyline[5].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[6].Name}" IsChecked="{Binding Polyline[6].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[7].Name}" IsChecked="{Binding Polyline[7].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <CheckBox Content="MoveX1" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="MoveX2" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="MoveY1" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[8].Name}" IsChecked="{Binding Polyline[8].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[9].Name}" IsChecked="{Binding Polyline[9].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[10].Name}" IsChecked="{Binding Polyline[10].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[11].Name}" IsChecked="{Binding Polyline[11].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <CheckBox Content="OffsetX" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="OffsetY" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[12].Name}" IsChecked="{Binding Polyline[12].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Polyline[13].Name}" IsChecked="{Binding Polyline[13].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
         </Grid>
 
@@ -90,17 +90,17 @@
 
             <TextBlock Text="箭头" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <CheckBox Content="PE(X11,Y11)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PE(X12,Y12)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="Move(X1,Y1)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="VelX1Y1" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="Offset(X,Y)" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[0].Name}" IsChecked="{Binding Arrow[0].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[1].Name}" IsChecked="{Binding Arrow[1].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[2].Name}" IsChecked="{Binding Arrow[2].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[3].Name}" IsChecked="{Binding Arrow[3].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[4].Name}" IsChecked="{Binding Arrow[4].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <CheckBox Content="PE(X21,Y21)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="PE(X22,Y22)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="Move(X2,Y2)" VerticalAlignment="Center" Margin="4"/>
-                <CheckBox Content="VelX2Y2" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[5].Name}" IsChecked="{Binding Arrow[5].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[6].Name}" IsChecked="{Binding Arrow[6].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[7].Name}" IsChecked="{Binding Arrow[7].IsChecked}" VerticalAlignment="Center" Margin="4"/>
+                <CheckBox Content="{Binding Arrow[8].Name}" IsChecked="{Binding Arrow[8].IsChecked}" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>
         </Grid>
 
@@ -112,7 +112,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Column="2">
                 <Button Content="相关系数" Command="{Binding CorrelationWindowShowCommand}" Height="30" Width="80" Margin="3"/>
-                <Button Content="确定" Command="{Binding ExampleSelectionChanged}" Height="30" Width="80" Margin="3"/>
+                <Button Content="确定" Command="{Binding ExampleSelectionChangedCommand}" Height="30" Width="80" Margin="3"/>
                 <Button Content="取消" Command="{Binding OptionsWindowHideCommand}" Height="30" Width="80" Margin="3"/>
             </StackPanel>
         </Grid>

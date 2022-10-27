@@ -17,26 +17,21 @@ using test.ViewModel;
 namespace test.Resources
 {
     /// <summary>
-    /// ExampleC.xaml 的交互逻辑
+    /// MyCircle.xaml 的交互逻辑
     /// </summary>
-    public partial class ExampleC : UserControl
+    public partial class MyCircle : UserControl
     {
-        public ExampleC()
+        public MyCircle()
         {
             InitializeComponent();
         }
         private void ExampleC_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Point pp = Mouse.GetPosition(e.Source as Canvas);//WPF方法
-            Point ppp = (e.Source as FrameworkElement).PointToScreen(pp);//WPF方法
-
-
-            {
-                MessageBox.Show(string.Format(" GetPosition {0},{1}\r\n {2},{3}", pp.X, pp.Y, ppp.X, ppp.Y));
-            }
             Base bs = Base.GetInstance();
-            //获取鼠标位置
-            bs.InfoCompareViewModel.PadInfoList.Add(new PadInfo());
+            int indexX = (int)((Canvas.GetLeft(this) + 5) / bs.MappingViewModel.Scale / 20);
+            int indexY = (int)(bs.MappingViewModel.PadAndInfoList[1].Count - 1 - (Canvas.GetTop(this) + 5) / bs.MappingViewModel.Scale / 10);
+            PadInfo padinfo = bs.MappingViewModel.PadAndInfoList[indexX][indexY].PadInfo;
+            bs.InfoCompareViewModel.PadInfoList.Add(padinfo);
             if (!bs.InfoCompareWindowIsOpen)
             {
                 InfoCompareView infoCompare = new InfoCompareView();
@@ -48,11 +43,6 @@ namespace test.Resources
                     bs.InfoCompareViewModel.PadInfoList.Clear();
                 };
             }
-        }
-        private void button2_Click(object sender, RoutedEventArgs e)//获取位置
-        {
-
-            
         }
     }
 }
