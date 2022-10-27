@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Border Width="36" Height="36">
+            <Path Fill="Red" Data="M -15,8 L 17,17 C 17,17 19,18 17,19 L 17,19 L -15,28 C -15,28 -17,28.2 -16,26 L -16,26 L -5,18 L -16,10 C -16,10 -17,8.5 -15,8 Z"></Path>
+        </Border>
     </Grid>
 </UserControl>

@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:test.View" 
+        xmlns:local="clr-namespace:test.View"  
+        
         mc:Ignorable="d"
         Title="OptionsWindowView" Height="450" Width="800">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -59,7 +61,27 @@
             <TextBlock Text="折线" VerticalAlignment="Center" Margin="5"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <CheckBox Content="PEX11" VerticalAlignment="Center" Margin="4"/>
+                
+                <ComboBox Name="comboColors" Margin="3,0">
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid Loaded="table_Loaded" />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Fill="{Binding Name}" Width="16" Height="16" Margin="0 2 5 2" />
+                                <!--<TextBlock Text="{Binding Name}" />-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
                 <CheckBox Content="PEY11" VerticalAlignment="Center" Margin="4"/>
+
+                
+
                 <CheckBox Content="PEX21" VerticalAlignment="Center" Margin="4"/>
                 <CheckBox Content="PEY21" VerticalAlignment="Center" Margin="4"/>
             </StackPanel>

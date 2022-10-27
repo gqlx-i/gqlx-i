@@ -10,6 +10,9 @@
     <Compile Update="RadioButtonUncheck.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Resources\Arrow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Resources\ExampleC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +51,9 @@
     <Page Update="RadioButtonUncheck.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\Arrow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\ExampleC.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -61,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\ScrollViewerUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Generic.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CorrelationView.xaml">

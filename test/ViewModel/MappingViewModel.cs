@@ -13,8 +13,11 @@ namespace test.ViewModel
     {
         private List<string> _typeNameList;
         private string _selectedTypeName;
+        private List<string> _waferIdList;
+        private string _selectedWaferId;
         private bool _exampleIsChecked;
         private bool _pathIsChecked;
+        private bool _isWafer;
         public bool ExampleIsChecked
         {
             get { return _exampleIsChecked; }
@@ -40,6 +43,9 @@ namespace test.ViewModel
             _selectedTypeName = "Glass行列显示";
             _exampleIsChecked = false;
             _pathIsChecked = false;
+            _waferIdList = new List<string>() { "01", "02" };
+            _selectedWaferId = "01";
+            _isWafer = false;
         }
 
         public List<string> TypeNameList
@@ -67,9 +73,65 @@ namespace test.ViewModel
             set
             {
                 _selectedTypeName = value;
+                if (value == "Wafer行列显示")
+                {
+                    IsWafer = true;
+                }
+                else
+                {
+                    IsWafer = false;
+                }
                 if (PropertyChanged != null)
                 {
                     PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SelectedTypeName"));
+                }
+            }
+        }
+
+        public List<string> WaferIdList
+        {
+            get
+            {
+                return _waferIdList;
+            }
+            set
+            {
+                value = _waferIdList;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("WaferIdList"));
+                }
+            }
+        }
+
+        public string SelectedWaferId
+        {
+            get
+            {
+                return _selectedWaferId;
+            }
+            set
+            {
+                _selectedWaferId = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SelectedWaferId"));
+                }
+            }
+        }
+
+        public bool IsWafer
+        {
+            get
+            {
+                return _isWafer;
+            }
+            set
+            {
+                _isWafer = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("IsWafer"));
                 }
             }
         }
