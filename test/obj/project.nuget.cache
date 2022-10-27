@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hb41YtjdIDViyqYs45Xpj/bYrreTDwZKn/U14Ji1xeY9LS8bs0OquHM56hARXY0wv8w1L31YO3xYZleOcr/rbQ==",
+  "dgSpecHash": "Zq+Nt2NyzWzTQAkyRMm5ZgoX1Z0pIfuMF0h18Pb2MLEx22yAgWfPZrGoCLTnZtjWYc4nObIOCTNVukh+hD1Y5w==",
   "success": true,
-  "projectFilePath": "D:\\chp\\gitProject\\test\\test\\test.csproj",
+  "projectFilePath": "D:\\lcc\\gqlx-i\\test\\test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maxwell\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
     "C:\\Users\\Maxwell\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512"

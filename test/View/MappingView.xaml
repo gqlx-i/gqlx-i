@@ -14,8 +14,91 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <con:Bool2IsVisible x:Key="Bool2IsVisible"/>
+            
             <Style x:Key="sliderThumbStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="Background" Value="CornflowerBlue"/>
+            </Style>
+
+            <Style x:Key="for_ScrollViewer" TargetType="{x:Type ScrollViewer}">
+                <Setter Property="BorderBrush" Value="LightGray"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="HorizontalScrollBarVisibility" Value="Visible"/>
+                <Setter Property="VerticalContentAlignment" Value="Top"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollContentPresenter Grid.Row="0" Grid.Column="2" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                                    <Button x:Name="restoreButton" Grid.Row="2" Grid.Column="0" Background="LightBlue" Click="Restore_Click" MouseRightButtonDown="CanvasInPath_MouseRightButtonDown" KeyDown="Window_Keydown"/>
+                                    <Button x:Name="verButton" Grid.Row="1" Grid.Column="0" Click="VerticalScrollBarRepeatButon_Click" >
+                                        <Image Source="/test;component/Picture/RestoreButton.png" Width="17" Height="17"/>
+                                    </Button>
+                                    <Button x:Name="HorButton" Grid.Row="2" Grid.Column="1" Click="HorizontalScrollBarRepeatButon_Click">
+                                        <Image Source="/test;component/Picture/RestoreButton.png" Width="17" Height="17"/>
+                                    </Button>
+
+                                    <!--垂直滚动条-->
+                                    <ScrollBar Grid.Row="0" Grid.Column="0" x:Name="PART_VerticalScrollBar" HorizontalAlignment="Left" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" 
+                                                ViewportSize="{TemplateBinding ViewportHeight}" Value="{TemplateBinding VerticalOffset}" 
+                                               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                                    <!--水平滚动条-->
+                                    <ScrollBar Grid.Row="2" Grid.Column="2" x:Name="PART_HorizontalScrollBar" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" 
+                                               VerticalAlignment="Bottom" Value="{TemplateBinding HorizontalOffset}" 
+                                               ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="ScrollChanged">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"/>
+                                            <!--自动消失-->
+                                            <!--<DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1" BeginTime="0:0:1"/>-->
+                                            <DoubleAnimation Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"/>
+                                            <!--<DoubleAnimation Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1" BeginTime="0:0:1"/>-->
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseEnter" SourceName="PART_VerticalScrollBar">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <!--鼠标离开后渐渐消失-->
+                                <!--<EventTrigger RoutedEvent="MouseLeave" SourceName="PART_VerticalScrollBar">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>-->
+
+                                <EventTrigger RoutedEvent="MouseEnter" SourceName="PART_HorizontalScrollBar">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -42,14 +125,37 @@
             <CheckBox x:Name="ExampleCheckBox" Content="图例" Grid.Row="0" Grid.Column="0" IsChecked="{Binding ExampleIsChecked}" VerticalAlignment="Center" Margin="8"/>
             <con:PopupEx Width="300" Height="150" x:Name="pop1" Topmost="False" IsOpen="{Binding ExampleIsChecked}" StaysOpen="True"  PopupAnimation="Slide" AllowsTransparency="False"
                            PlacementTarget="{Binding  ElementName=ExampleCheckBox}" Placement="Bottom">
-                <Border BorderThickness="1" BorderBrush="Black" Background="LightGray">
+                <Border BorderThickness="1" BorderBrush="Black" Background="#F0F0F0">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1.5*"/>
                             <RowDefinition Height="1.5*"/>
                             <RowDefinition Height="1.5*"/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" Background="LightGray" Margin="6,2"/>
+                        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" Background="LightGray" Margin="6,2">
+                            <StackPanel>
+                                <Rectangle Height="15">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                                            <GradientStop Color="Blue" Offset="0.05"/>
+                                            <GradientStop Color="LimeGreen" Offset="0.55"/>
+                                            <GradientStop Color="GreenYellow" Offset="0.65"/>
+                                            <GradientStop Color="Yellow" Offset="0.75"/>
+                                            <GradientStop Color="Red" Offset="0.9"/>
+                                            <GradientStop Color="DarkRed" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <DockPanel Background="White" >
+                                    <TextBlock Text="-" Margin="4,0"/>
+                                    <TextBlock Text="0" HorizontalAlignment="Center" Margin="125,0"/>
+                                    <TextBlock Text="+" HorizontalAlignment="Right" Margin="4,0"/>
+                                </DockPanel>
+                                <TextBlock Text="Offset" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            
+                        </Border>
                         <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" Background="LightGray" Margin="6,2"/>
                         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0.5" Background="LightGray" Margin="6,2"/>
                     </Grid>
@@ -63,11 +169,12 @@
             <Button Content="选项" Command="{Binding OptionWindowShowCommand}" Grid.Row="0" Grid.Column="5" Width="85" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,8,2"/>
             <Button Content="筛选" Command="{Binding SelectWindowShowCommand}" Grid.Row="1" Grid.Column="5" Width="85" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,8,2"/>
             <Button Content="演示" Grid.Row="2" Grid.Column="5" Width="85" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,8,2"/>
-            <TextBlock Text="/////路径/////" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="{Binding PathIsChecked,Converter={StaticResource Bool2IsVisible}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="260" Height="40"/>
+            <TextBlock Text="/////路径/////" Grid.Row="1" Grid.Column="4" Visibility="{Binding PathIsChecked,Converter={StaticResource Bool2IsVisible}}" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="18" Width="130" Height="30"/>
+            <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding WaferIdList}" SelectedItem="{Binding SelectedWaferId}" Visibility="{Binding IsWafer,Converter={StaticResource Bool2IsVisible}}" Width="160" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
-            <ScrollViewer x:Name="scrollView" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <Canvas x:Name="CanvasInPath" Background="Aqua" Cursor="Arrow" Width="1400" Height="700" Margin="50,20,20,50" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
+            <ScrollViewer x:Name="scrollView" Style="{StaticResource for_ScrollViewer}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Canvas x:Name="CanvasInPath" Background="LightBlue" Cursor="Arrow" Width="1400" Height="700" Margin="50,20,20,50" MouseMove="CanvasInPath_MouseMove" MouseLeftButtonDown="CanvasInPath_MouseLeftButtonDown" MouseLeftButtonUp="CanvasInPath_MouseLeftButtonUp">
 
                 </Canvas>
             </ScrollViewer>

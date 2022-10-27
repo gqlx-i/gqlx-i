@@ -58,6 +58,18 @@ namespace test.View
             scrollView.PageLeft();
         }
 
+        public void HorizontalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
+        {
+            scrollView.PageRight();
+            scrollView.ScrollToLeftEnd();
+        }
+
+        public void VerticalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
+        {
+            scrollView.PageDown();
+            scrollView.ScrollToTop();
+        }
+
         public static void ScrollViewToVerticalTop(FrameworkElement element,ScrollViewer scrollViewer)
         {
             var scrollViewOffset = scrollViewer.VerticalOffset;
@@ -399,5 +411,17 @@ namespace test.View
                     child.Opacity = 1;
             }
         }
+
+        //private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if ((string)ComboBox1.SelectedItem == "Wafer行列显示")
+        //    {
+        //        ComboBox2.Visibility = Visibility.Visible;
+        //    }
+        //    else
+        //    {
+        //        ComboBox2.Visibility = Visibility.Collapsed;
+        //    }
+        //}
     }
 }

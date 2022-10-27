@@ -29,52 +29,52 @@ namespace test.Resources
             InitializeComponent();
             DataContext = this;
         }
-        private void CanvasInPath_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            isLeftButtonUp = false;
-            isCanMove = true;
-            //tempStartPoint = e.GetPosition(this.CanvasInPath);
-        }
+        //private void CanvasInPath_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    isLeftButtonUp = false;
+        //    isCanMove = true;
+        //    //tempStartPoint = e.GetPosition(this.CanvasInPath);
+        //}
 
-        private void CanvasInPath_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            isRightButtonUp = false;
-            scrollView.ScrollToTop();
-            scrollView.PageUp();
-            scrollView.PageLeft();
-            //isCanMove = true;
-            //tempStartPoint = e.GetPosition(this.CanvasInPath);
-        }
+        //private void CanvasInPath_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    isRightButtonUp = false;
+        //    scrollView.ScrollToTop();
+        //    scrollView.PageUp();
+        //    scrollView.PageLeft();
+        //    //isCanMove = true;
+        //    //tempStartPoint = e.GetPosition(this.CanvasInPath);
+        //}
 
-        // Shift按下
-        private void Window_Keydown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyStates == Keyboard.GetKeyStates(Key.LeftShift) || e.KeyStates == Keyboard.GetKeyStates(Key.RightShift))
-            {
-                isShiftKeyUp = false;
-                //this.CanvasInPath.Cursor = Cursors.Cross;
-            }
-        }
+        //// Shift按下
+        //private void Window_Keydown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyStates == Keyboard.GetKeyStates(Key.LeftShift) || e.KeyStates == Keyboard.GetKeyStates(Key.RightShift))
+        //    {
+        //        isShiftKeyUp = false;
+        //        //this.CanvasInPath.Cursor = Cursors.Cross;
+        //    }
+        //}
 
-        public void Restore_Click(object sender, RoutedEventArgs e)
-        {
-            scrollView.ScrollToTop();
-            scrollView.PageDown();
-            scrollView.ScrollToLeftEnd();
-            scrollView.PageRight();
-        }
+        //public void Restore_Click(object sender, RoutedEventArgs e)
+        //{
+        //    scrollView.ScrollToTop();
+        //    scrollView.PageDown();
+        //    scrollView.ScrollToLeftEnd();
+        //    scrollView.PageRight();
+        //}
 
-        public void HorizontalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
-        {
-            scrollView.PageRight();
-            scrollView.ScrollToLeftEnd();
-        }
+        //public void HorizontalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
+        //{
+        //    scrollView.PageRight();
+        //    scrollView.ScrollToLeftEnd();
+        //}
 
-        public void VerticalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
-        {
-            scrollView.PageDown();
-            scrollView.ScrollToTop();
-        }
+        //public void VerticalScrollBarRepeatButon_Click(object sender, RoutedEventArgs e)
+        //{
+        //    scrollView.PageDown();
+        //    scrollView.ScrollToTop();
+        //}
 
         //public static void ScrollViewToVerticalTop(FrameworkElement element, ScrollViewer scrollViewer)
         //{

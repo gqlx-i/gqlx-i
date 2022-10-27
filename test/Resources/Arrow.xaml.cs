@@ -14,15 +14,13 @@ using System.Windows.Shapes;
 namespace test.Resources
 {
     /// <summary>
-    /// PlotLine.xaml 的交互逻辑
+    /// Arrow.xaml 的交互逻辑
     /// </summary>
-    public partial class PlotLine : UserControl
+    public partial class Arrow : UserControl
     {
-        public PlotLine()
+        public Arrow()
         {
             InitializeComponent();
         }
-
-        
     }
 }
